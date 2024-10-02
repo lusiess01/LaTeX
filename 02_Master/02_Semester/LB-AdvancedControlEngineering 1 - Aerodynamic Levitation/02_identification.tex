@@ -1,0 +1,22 @@
+% An explanation of how you identified the system and the choices made in this procedure, e.g. height calculation, step response, identified system etc.
+System identification in control engineering is the process of building mathematical models that represent the behavior of real-world systems with analyzing input-output data to infer the dynamics and parameters of the system. We use the data-driven approache which rely on techniques to extract information from measured data. Here the methods like least squares estimation takes place with MATLAB's \textit{lsqcurvefit} function. Of course the accuracy of the identified model depends a lot on the quality of the measured data.
+
+\subsection{PT2 System}
+The system behaviour of our current system is figured out by determining the range of the distance sensor in which the system behaves more or less linear. So we choose a range of $20$ to $\SI{60}{cm}$ distance between our table tennis ball and our distance sensor. The already mentioned linearization of the distance sensor can be seen in figure \ref{fig:sensorLinearization} on page \pageref{fig:sensorLinearization}. 
+
+The current system should be identified as a PT2 system, like described in the laboratory instruction. \cite{Laborleitfaden} To do so the system is applied by some input signals to get the output data (see figure \ref{subfig:raw} on page \pageref{subfig:raw}). A nice input/output data timeslow after $\SI{158}{s}$ is chosen to trim the desired system response which is already close to a PT2 system (figure \ref{subfig:trimming} on page \pageref{subfig:trimming}). From here both the input as well as the ouput signal needs to be normalized to $1$. So we divide the input signal by $0.43$ (\textit{max(data.stepTrimmed.y)}) and the output signal by the mean value after settling time. The corresponding normalized plot can be found in figure \ref{subfig:normalize} on page \pageref{subfig:normalize}. From the normalized system response, the fitted PT2 transfer function can be won with \textit{lsqcurvefit} and the response of a damped single-degree-of-freedom harmonic oscillator (eqn. \ref{eqn:oscillator}) which was provided by the lecturer.
+\begin{equation}
+    y = 1 - \frac{e^{-\zeta w_n t}}{\sqrt{1 - \zeta^2}} \cdot \sin(w_d \cdot t +  tan^{-1} \left(\frac{\sqrt{1 - \zeta^2}}{{\zeta}}\right))
+    \label{eqn:oscillator}
+\end{equation}
+With the \textit{tf2ss} (transfer function to state space) MATLAB function we get the state-space model with the state-space matrices like in equation \ref{eqn:statespacematrices}.
+\begin{equation}
+\begin{split}
+    A &= \begin{bmatrix} -2.20 & -1.57 \cr 1 & 0 \end{bmatrix} \\
+    B &= \begin{bmatrix} 1 \cr 0 \end{bmatrix} \\
+    C &= \begin{bmatrix} 0 & 1.57 \end{bmatrix} \\
+    D &= \begin{bmatrix} 0 \end{bmatrix} \\
+    \label{eqn:statespacematrices}
+\end{split}
+\end{equation}
+With a proper state-space representation the controller design as well as the simulink control structure can be started in section \ref{sec:technology}.

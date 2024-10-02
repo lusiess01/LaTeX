@@ -1,0 +1,303 @@
+\usepackage[dvips]{graphicx}
+\usepackage[tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in]{geometry}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage[overload]{textcase}
+\usepackage[utf8]{inputenc}
+\usepackage{epstopdf}
+\usepackage{listings}
+\usepackage{wallpaper}
+\usepackage[binary-units=true]{siunitx} %Zusätzliche Option erlaubt binary-units wie z.B.: \byte
+\usepackage{placeins} %Für \FloatBarrier beim Einfügen von Abbildungen
+%=============================================
+\usepackage{exscale,relsize}
+\usepackage{fancyhdr}
+\usepackage[small]{caption}
+\usepackage{float}
+\usepackage{amsmath, amssymb, amsfonts, amsthm}
+\usepackage{pst-all}
+\usepackage{rotating}
+\usepackage{mathrsfs}
+\usepackage{makeidx}
+\usepackage{multirow}
+%=============================================
+\usepackage{pgfplots}
+\usepackage{tikz}
+%\usepackage[european, siunitx]{circuitikz}
+%=============================================
+\usepackage{setspace} 
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{cancel}
+\usepackage{xspace}
+%=============================================
+\usepackage{subcaption}
+\usepackage{pdfpages}
+\usepackage{nameref}
+\usepackage[pdftex,bookmarks=true,bookmarksnumbered=true]{hyperref}
+\usepackage{wasysym}
+%=============================================
+%STEINMETZ
+%\PassOptionsToPackage{original}{pict2e} falls Probleme zw. cancel und steinmetz auftreten
+\usepackage{steinmetz}	%für Versor/Phasor Symbol für Winkel in der Elektrotechnik 
+%=============================================
+
+%FONTS für \ttfamily und \bfseries gleichzeitig --> wird normal nicht unterstützt
+%http://www.macfreek.nl/memory/LaTeX_Bold_Typewriter_Font
+\DeclareFontShape{OT1}{cmtt}{bx}{n}{<5><6><7><8><9><10><10.95><12><14.4><17.28><20.74><24.88>cmttb10}{}
+
+%SPRACHEN einrichten --> für Englisch: [main=english, ngerman] --> es muss evtl. 2x kompiliert werden
+\usepackage[english]{babel}
+
+\def\headerLists{headerLists}
+\iflanguage{ngerman}{\def\headerLists{Verzeichnisse}}{}
+\iflanguage{ngerman}{\def\headerLists{Indices}}{}
+\iflanguage{ngerman}{\renewcommand\lstlistlistingname{Quellcodeverzeichnis}}{}
+\iflanguage{ngerman}{\renewcommand\lstlistlistingname{List of \lstlistingname s}}{}
+\expandafter\addto\csname captionsngerman\endcsname{\renewcommand{\refname}{Literaturverzeichnis}}
+
+%Einstellung für TOC, damit lange Seitennummer (römisch) nicht zu weit rechts steht --> Wert muss angepasst werden
+\makeatletter
+\renewcommand{\@pnumwidth}{1.55em}	%default = 1.55em
+\makeatother
+
+%===================================================================
+
+%FARBEN für Deckblatt, etc.
+\def\isBlackAndWhite{1}
+\if\isBlackAndWhite1
+	\definecolor{MSBlue}{rgb}{0, 0, 0}
+	\definecolor{MSLightBlue}{rgb}{0, 0, 0}
+	%für listings
+	\definecolor{lstGreen}{RGB}{0, 0, 0}
+	\definecolor{lstBlue}{RGB}{0, 0, 0}
+	\definecolor{lstGreenMatlab}{RGB}{0, 0, 0}
+	\definecolor{lstLila}{RGB}{0, 0, 0}
+\else
+	\definecolor{MSBlue}{rgb}{0.204, 0.353, 0.541}
+	\definecolor{MSLightBlue}{rgb}{0.31, 0.506, 0.741}
+	%für listings
+	\definecolor{lstGreen}{RGB}{46, 109, 103}
+	\definecolor{lstBlue}{RGB}{40, 38, 160}
+	\definecolor{lstGreenMatlab}{RGB}{28,172,0}
+	\definecolor{lstLila}{RGB}{170,55,241}
+\fi
+
+%===================================================================
+
+%FORMATS for each heading level
+%\titleformat*{\section}{\rmfamily\bfseries\huge\color{MSBlue}\lowercase}
+\setcounter{secnumdepth}{4}
+\titleformat{\section}[hang]{\sffamily\bfseries\huge\color{MSBlue}}{\thesection}{1em}{}[]
+\titleformat{\subsection}{\large\bfseries\sffamily\uppercase}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\sffamily\bfseries}{\thesubsubsection}{1em}{}
+\titleformat{\paragraph}{\sffamily\bfseries}{\theparagraph}{1em}{}
+\newcommand{\subsubsubsection}{\paragraph}
+\titleformat{\subparagraph}{\sffamily\bfseries}{\thesubparagraph}{1em}{}
+\newcommand{\subsubsubsubsection}{\subparagraph}
+
+%\newcommand{\subsubsubsection}{\textbf}
+%===================================================================
+
+%SIUNITX
+\iflanguage{ngerman}{\sisetup{locale=DE, tophrase={~bis~}}}{}		%Macht z.B.: Komma zum Dezimalseparator
+\DeclareSIUnit{\var}{var}	%Volt-Ampere-Reaktiv
+\DeclareSIUnit{\VA}{VA}		%Volt-Ampere
+\DeclareSIUnit{\Nm}{\newton \meter}		%Newtonmeter
+\DeclareSIUnit{\mm}{\milli \meter}		%Millimeter
+\DeclareSIUnit{\Npsmm}{\newton \per \square \milli \meter}	%Newton-pro-Quadratmillimeter
+\DeclareSIUnit{\decade}{dec}
+%===================================================================
+
+%LISTINGS for inline source code highlighting
+\lstdefinelanguage{ST}{	%settings für Strukturierten Text
+	keywords = {
+		PROGRAM, CONFIGURATION, END_CONFIGURATION, VAR, VAR_GLOBAL, VAR_EXTERNAL, END_VAR, TASK, INTERVAL, AT, EXIT, WITH, VAR_INPUT, VAR_OUTPUT,
+		IF, ELSE, ELSIF, THEN, END_IF, CASE, OF, END_CASE, RETURN,
+		REPEAT, UNTIL, END_REPEAT, WHILE, END_WHILE, FOR, END_FOR, DO, TO, BY,
+		BOOL, BYTE, WORD, DWORD, LWORD,
+		INT, SINT, DINT, LINT, USINT, UINT, LDINT, ULINT, 
+		REAL, LREAL, 
+		ADR, TRUNC, ABS, SQRT, LN, LOG, EXP, SIN, COS, TAN, ASIN, ACOS, ATAN, EXPT,
+		STRING, TIME, DATE, TIME_OF_DAY, DATE_AND_TIME,
+		NOT, AND, OR, XOR, TRUE, FALSE, MOD, EXPT, FUNCTION_BLOCK
+	},
+	sensitive = true,			%case sensitivity --> should probably be false
+	morecomment = [l]{//},		%inline comment
+	morecomment = [s]{(*}{*)},	%mult line comment
+	morecomment = [s]{/*}{*/},
+	morestring = [b]",
+	morestring = [b]',
+	tabsize = 4
+}
+
+%default style for ST --> language must not be specified when using style
+\lstdefinestyle{ST}{
+	language=ST,
+	basicstyle=\small\ttfamily,
+	keywordstyle=\color{lstBlue}\bfseries,
+	columns=fullflexible,
+	breaklines=true,
+	postbreak=\mbox{$\hookrightarrow$\space},
+	captionpos=t,	%t for top or b for bottom
+	commentstyle=\color{lstGreen}\itshape,
+}
+
+%default style for MATLAB --> language must not be specified when using style
+\lstdefinestyle{matlab}{
+	language=Matlab,
+	basicstyle=\small\ttfamily,
+	keywordstyle=[1]\color{lstBlue}\bfseries,
+	keywordstyle=[2]\color{lstLila},
+	commentstyle=\color{lstGreenMatlab}\itshape,
+	stringstyle=\color{lstLila},
+	showstringspaces=false,
+	captionpos=t,
+	tabsize = 4,
+	columns=fullflexible,
+	breaklines=true,
+	postbreak=\mbox{$\hookrightarrow$\space},
+	morekeywords={xlim,ylim,var,alpha,factorial,poissrnd,normpdf,normcdf,clearvars},
+	%Put MATLAB function parameters here
+	morekeywords=[2]{step_PT1, step_PT1T, step_PT2},
+	morecomment=[l][\color{blue}]{...},     % Line continuation (...) like blue comment
+}
+
+%===================================================================
+
+%TIKZ
+\newcommand{\tikzDrawBB}{\draw (current bounding box.north east) -- (current bounding box.north west) -- (current bounding box.south west) -- (current bounding box.south east) -- cycle;}
+
+%===================================================================
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+
+% auxillary symbols
+\renewcommand{\tilde}{\symbol{126}}
+\newcommand{\define}{\stackrel{!}{=}}
+\renewcommand{\equiv}{\,\widehat{=}\,}
+
+\newcommand{\im}{j}
+\newcommand{\matlab}{MATLAB\xspace}
+\newcommand{\labview}{LabVIEW\xspace}
+\newcommand{\simulink}{Simulink\xspace}
+\newcommand{\flexsim}{FlexSim\xspace}
+
+% format specifications
+\newcommand{\ten}[1]{\mathbf{#1}}	%Tensor
+\newcommand{\mat}[1]{\mathbf{#1}}	%Matrix
+
+% mathematical operators
+\newcommand{\grad}{\,\mathrm{grad}\,}
+\renewcommand{\div}{\,\mathrm{div}\,}
+\newcommand{\rot}{\,\mathrm{rot}\,}
+\newcommand{\lap}{\Delta}
+\newcommand{\laplace}[1]{\mathscr{L}\left\{#1\right\}}	%Laplacetransformation
+\newcommand{\invLaplace}[1]{\mathscr{L}^{-1}\left\{#1\right\}}	%inverse Laplactransformation
+\newcommand{\trans}{^{\raisebox{\depth - 0.075em}{$\intercal$}}}%{^T}	%Transponiert --> für Matrix
+\DeclareMathSymbol{*}{\mathbin}{symbols}{"01} % Punkt statt *
+
+%===================================================================
+
+%Grad als Einheit --> °
+\newcommand{\gradU}[1]{\SI{#1}{\degree}} %hauptsächlich in kombination mit steinmetz-package sinnvoll
+
+%Toleranzen
+\newcommand{\tol}[4]{\ensuremath{\SI{#1}{#2}^{+\num{#3}}_{-\num{#4}}}}	%#1 #2 +#3 -#4
+\newcommand{\tolSingle}[3]{\ensuremath{\SI{#1}{#2}^{+\num{#3}}}}
+
+%command für römische Zahlen
+\newcommand{\RN}[1]{\textup{\uppercase\expandafter{\romannumeral#1}}}
+
+%circled numbers (normal, big and small)
+\newcommand{\circText}[1]{{\large \textcircled{\small{#1}}}}
+\newcommand{\circTextBig}[1]{{\Large \textcircled{\normalsize{#1}}}}
+\newcommand{\circTextSmall}[1]{{\textcircled{\small{#1}}}}
+
+%command für dx, etc. für Integral
+\newcommand{\diff}{\mathop{}\!\mathrm{d}}	%\diff x --> dx
+\newcommand{\Diff}[1]{\mathop{}\!\mathrm{d^{#1}}} %\Diff[2] x --> d²x
+
+%command für Ableitungen (normal und partiell) --> Verwendung austauschbar:
+%\deriv{I}{t} --> dI/dt
+%\deriv[2]{s}{t} --> d^2 s/dt^2
+\newcommand{\deriv}[3][]{\frac{\Diff{#1} #2}{\diff {#3}^{#1}}}
+\newcommand{\parDeriv}[3][]{\frac{\partial^{#1} #2}{\partial {#3}^{#1}}}
+
+%command für nicht kursives e im Mathmode --> soll nicht kursiv sein, da eine Konstante
+\newcommand{\eUpr}{\mathrm{e}}
+
+%===================================================================
+%ENVIRONMENTS
+
+%small matrix mit eckigen Klammern
+\newenvironment{bsmallmatrix}{\left[\begin{smallmatrix}}{\end{smallmatrix}\right]}
+
+%===================================================================
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1.5ex plus0.5ex minus0.5ex}
+\setlength{\captionmargin}{3em}
+
+\newcommand{\textdirectcurrent}{%
+	\settowidth{\dimen0}{$=$}%
+	\vbox to .85ex {\offinterlineskip
+		\hbox to \dimen0{\leaders\hrule\hfill}
+		\vskip.35ex
+		\hbox to \dimen0{%
+			\leaders\hrule\hskip.2\dimen0\hfill
+			\leaders\hrule\hskip.2\dimen0\hfill
+			\leaders\hrule\hskip.2\dimen0
+		}
+		\vfill
+	}%
+}
+\newcommand{\mathdirectcurrent}{\mathrel{\textdirectcurrent}}
+
+
+
+
+
+
+
+%============================= MATLAB STYLE ======================================
+\lstdefinestyle{MStyle}{
+    backgroundcolor=\color{backgroundColour},   
+    language=Matlab, 
+%    frame=single,
+    basicstyle=\small\ttfamily,
+    keywordstyle=[1]\color{Blue}\bfseries,  % MATLAB functions
+    keywordstyle=[2]\color{Purple},         % MATLAB function arguments
+    keywordstyle=[3]\color{Blue}\underbar,  % User functions
+    identifierstyle=,                       % Nothing special about identifiers
+    commentstyle=\usefont{T1}{pcr}{m}{sl}\color{MyDarkGreen}\small,
+    stringstyle=\color{Purple},
+    %%% Put standard MATLAB functions not included in the default
+   %%% language here
+    morekeywords={xlim,ylim,var,alpha,factorial,poissrnd,normpdf,normcdf},
+    %%% Put MATLAB function parameters here
+    morekeywords=[2]{on, off, interp},
+    %%% Put user defined functions here
+    morekeywords=[3]{FindESS, homework_example},
+    morecomment=[l][\color{Blue}]{...},     % Line continuation (...) like blue comment
+    numbers=left,
+    firstnumber=1,
+    numberstyle=\tiny\color{mGray},
+    numbersep=5pt,
+    stepnumber=5,
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+}
+
+\usepackage{xcolor}
+\definecolor{Purple}{rgb}{0.71,0,1}
+\definecolor{Black}{rgb}{0,0,0}
+\definecolor{Blue}{rgb}{0,0,1}
+\definecolor{mGreen}{rgb}{0,0.6,0}
+\definecolor{mGray}{rgb}{0.5,0.5,0.5}
+\definecolor{mPurple}{rgb}{0.58,0,0.82}
+\definecolor{backgroundColour}{rgb}{0.95,0.95,0.92}
+\definecolor{MyDarkGreen}{rgb}{0,0.8,0}
+%============================= MATLAB STYLE ======================================

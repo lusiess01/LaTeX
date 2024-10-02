@@ -1,0 +1,52 @@
+Version 1.8.1 - 2018-11-02:
+	-Deckblatt in Englisch
+	-Cleanup
+
+Version 1.7.1 - 2018-05-25:
+	-Support für Listings in mehreren Sprachen gleichzeitig mit unterschiedlichen styles (MATLAB und ST)
+
+Version 1.7.0 - 2018-05-24:
+	-Support für Englisch und Deutsch:
+		In definitions.tex in der Zeile \usepackage[main=ngerman, english]{babel} Hauptsprache und Zweitsprache einstellen --> IMMER beide Sprachen angeben
+		Automatische Umstellung aller Verzeichnisnamen
+	-Support für das Listings-Package:
+		Language definition für Strukturierten Text (für SPS-Programmierung)
+	-Support für Anhänge:
+		Eigene appendix.tex Datei --> alle Anhänge müssen in dieser Datei eingefügt werden, damit sie richtig angezeigt/gesetzt werden
+
+Version 1.6.0 - 2018-04-22:
+	-Zwei Commands für die Darstellung von Toleranzen:
+		Name: \tol --> Verwendung: \tol{20}{\milli \meter}{0,2}{0,1} --> 20 mm +0,2 -0,1, wobei die Abmaße hoch- bzw. tiefgestellt werden
+		Name: \tolSingle --> Verwendung: \tolSingle{20}{\milli \meter}{0,2} --> 20 mm +0,2, wobei die Abmaße hoch- bzw. tiefgestellt werden
+
+Version 1.5.0 - 2018-04-21:
+	-Drei Commands für die Darstellung von Zahlen in Kreisen:
+		Name: \circText --> Verwendung: \circText{3} --> ③ --> ein Kreis mit der jeweiligen Zahl in der Mitte
+		Name: \circTextBig --> Verwendung ident zu \circText, jedoch ein größeres Symbol
+		Name: \circTextSmall --> Verwendung ident zu \circText, jedoch ein kleineres Symbol
+
+Version 1.4.0 - 2018-02-09:
+	-Zwei Commands für die richtige Darstellung einer Ableitung:
+		Name: \deriv --> Verwendung: \deriv{I}{t} --> dI/dt bzw. \deriv[2]{I}{t} --> d²I/dt²
+		Name: \parDeriv --> Verwendung ident zu \deriv --> nur für partielle Ableitungen
+
+Version 1.3.0 - 2018-02-06:
+	-Einfügen des xspace package, damit das \labview command richtig funktioniert
+	-Ein Command für die richtige Schreibweise von LabView:
+		Name: \labview --> Verwendung: \labview --> LabVIEW --> vor allem wichtig für Überschriften
+
+Version 1.2.0 - 2018-01-02:
+	-\fancyhead für Verzeichnisse
+	-Die Abkürzungen Nm, mm, Npsmm (definitions.tex Z54ff) für das siunitx-Paket wurden hinzugefügt
+	-Ein Command für römische Ziffern wurde hinzugefügt:
+		Name: \RN{} --> Verwendung: \RN{1} --> I
+	-Zwei Commands für die richtige Darstellung eines Differentials wurden hinzugefügt:
+		Name: \diff --> Verwendung: \diff --> d, wobei das d in der Mathematikumgebung nicht kursiv dargestellt wird
+		Name: \Diff{} --> Verwendung: \Diff{2} --> d², wobei das d in der Mathematikumgebung nicht kursiv dargestellt wird
+
+Version 1.0.0 - 2017-02-19:
+	-Links zu den Verzeichnissen stimmen nun (\phantomsection)
+	-steinmetz-Paket für das Versor-Symbol in der Elektrotechnik würde hinzugefügt
+	-Die Einheiten var und VA wurden für das siunitx-Paket hinzugefügt
+	-Ein Makro für die Angabe eines Winkels in Grad (mittels siunitx) wurde hinzugefügt:
+		Name: \gradU{} --> Verwendung: \gradU{90} --> 90° --> hauptsächlich für steinmetz-Paket

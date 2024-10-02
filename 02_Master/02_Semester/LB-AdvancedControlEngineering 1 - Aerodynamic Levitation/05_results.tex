@@ -1,0 +1,7 @@
+To assess the modeled system, it underwent testing with both a step input and a trajectory, in our case, characterized by an arbitrarily chosen rectangular profile.
+
+Upon application of the step input, the controller regulated the system as designed, exhibiting the expected settling time and percentage overshoot, as depicted in figure \ref{subfig:stepController}. Additional measurements from the observer and the system are presented in figure \ref{subfig:stepSystem} and \ref{subfig:stepObserver}, respectively.
+
+Unfortunately, the trajectory signal was selected with a slightly accelerated pace, leading to amplitude changes after 2 seconds, beyond the response capability of the controller. Nonetheless, as illustrated in figure \ref{subfig:trajController}, it is evident that the controller lags slightly behind the trajectory. Further measurements from the observer and the system are provided in figure \ref{subfig:trajSystem} and \ref{subfig:trajObserver}.
+
+The observed results from both the step input and trajectory testing provide valuable insights into the system's response dynamics under different inputs. These findings contribute to a comprehensive understanding of the controller's performance and the system's behavior, facilitating further refinement and optimization in subsequent iterations of the control design. Detailed visual representations and quantitative data for each scenario are available in the respective figures.

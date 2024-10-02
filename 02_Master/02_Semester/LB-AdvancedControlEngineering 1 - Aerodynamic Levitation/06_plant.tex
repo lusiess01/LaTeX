@@ -1,0 +1,14 @@
+
+
+In this laboratory experiment, the control system was implemented on the physical structure that had previously been designed and discussed in detail in the preparation phase (see chapter \ref{sec:controller}). After a series of optimizations and code adaptations, initial results were achieved after several test runs.
+
+As already known, the tests showed that the sensor only exhibits linearity in a certain range and only delivers linear measured values in this interval. Consequently, controlling the height of the table tennis ball in this middle area of the column led to the best results.
+
+Furthermore, ensuring accurate conversion of the sensor readings was crucial, which was achieved by using amplification in Simulink, as shown in figure \ref{fig:simuSineTrajectory}. This enabled accurate interpretation of the sensor data.
+
+By conducting iterative tests and making adjustments to parameters such as settling time, percentage overshoot, system poles, and observer poles, satisfactory outcomes were attained. Various input stimuli were employed during the experimentation, including a step input aimed at stabilizing the system at a constant height, as well as a custom trajectory input. 
+Additionally, it was observed that careful consideration of system dynamics and sensor characteristics was essential for achieving optimal performance. This involved fine-tuning control parameters and implementing robust control strategies to mitigate disturbances and uncertainties in the system.
+
+The finalized and optimized MATLAB and MATLAB Simulink files associated with this experiment are provided in the appendix, serving as  resources for future research and experimentation in the field of control systems engineering, especially for aerodynamic levitation. 
+
+

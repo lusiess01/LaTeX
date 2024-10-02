@@ -1,0 +1,105 @@
+% LaTeX-Vorlage Version 3.0,  Juni 2010
+% erstellt von Dr. Andreas Drauschke und Dr. Susanne Teschl
+% Modifiziert von Dr. Andreas Mehrle (andreas.mehrle@mci.edu)
+
+%MODIFIZIERT von M. Panny - Version 1.8.0
+
+\documentclass[a4paper, oneside, 10pt]{article}
+
+\newcounter{RoemischeSeiten}
+\pagenumbering{Roman}
+
+\input{definitions.tex}
+
+% LABORTITEL
+\def\thesis{Report}
+\def\labtitle{Laboratory Advanced Control Engineering}
+\def\labcode{BB MECH-M-1-RTV-RTV-LB}
+\def\labdate{13.01.2024 and 02.02.2024}
+
+% LABORNAME & NUMMER
+\def\labname{Lab 1 - Aerodynamic Levitation}
+%\def\labnum{2}
+
+% ANGABEN ZUM Studium & Student
+\def\study{Master Mechatronics \& Smart Technologies}
+\def\term{1.}
+\def\lecturer{Jasper Volmer}
+\def\group{MA-MECH-23-BB-2B}
+\def\student{Lukas Figl, Lukas Sieß, Stefan Widmann}
+
+\begin{document}
+
+%\layout
+\setlength{\belowcaptionskip}{-8pt}
+ %Abstand nach Abbildungen von 0.0pt auf -8pt verringern
+
+% Kopf- und Fusszeilen initiieren
+\pagestyle{plain}
+
+\input{deckblatt.tex}
+
+\newpage
+\tableofcontents
+\newpage
+
+% Kopf- und Fusszeilen initiieren
+% Inhalt einbinden
+
+\pagestyle{fancy}
+\setcounter{RoemischeSeiten}{\value{page}}
+\pagenumbering{arabic}
+
+\input{00_main}
+% Verzeichnisse
+% alles was danach kommt in römischer Seitennummerierung
+\clearpage
+\pagenumbering{Roman}
+\setcounter{page}{\value{RoemischeSeiten}}
+% gilt für alle Verzeichnisse
+\fancyhead[R]{\sffamily\bfseries\MakeUppercase{\headerLists}}
+
+% Abbildungsverzeichnis
+\fancyhead[L]{\listfigurename}
+\fancyhead[R]{}
+\phantomsection
+\addcontentsline{toc}{section}{\listfigurename}
+\listoffigures
+
+%Tabellenverzeichnis
+\clearpage
+\phantomsection
+\fancyhead[L]{\listtablename}
+\addcontentsline{toc}{section}{\listtablename}
+\listoftables
+
+%Quellcodeverzeichnis
+%\clearpage
+%\phantomsection
+%\fancyhead[L]{\lstlistlistingname}
+%\addcontentsline{toc}{section}{\lstlistlistingname}
+%\lstlistoflistings
+
+%Literaturverzeichnis
+\clearpage
+\bibliographystyle{IEEEtran}
+\fancyhead[L]{\refname}
+\phantomsection
+\addcontentsline{toc}{section}{\refname}
+\bibliography{literatur}
+
+%Appendix
+\clearpage
+\fancyhead[L]{}
+\fancyhead[R]{\MakeUppercase{\appendixname}}
+\appendix 
+\addcontentsline{toc}{section}{\appendixname}
+\input{appendix.tex} 
+
+% letzte Fußzeile (MCI Logo)
+\pagestyle{fancy}
+\lfoot{\includegraphics[height=0.9cm]{Images/MCIFuss.png}}
+\newpage
+\lfoot{}
+
+\end{document}
