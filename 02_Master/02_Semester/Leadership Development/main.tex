@@ -1,0 +1,85 @@
+\documentclass[a4paper, oneside, 11pt]{article}
+%% -> Für längere Arbeiten "report" benutzen.
+
+%% --------------------------------------------------------------------- %%
+
+\usepackage{ifthen}
+\usepackage{svg}
+\newboolean{english}
+\setboolean{english}{false} %% -> Kommentar entfernen bei englischen Arbeiten
+
+%% --------------------------------------------------------------------- %%
+
+%% -> Einfügen der Definitionen
+\input{Definition/Definition}
+
+%% -> Deckblatt ausfüllen 
+\def\labtitle{Strategisches Marketing}
+\def\labcode{MA-MECH-M-2-MSK-STM-SE}
+\def\labname{Projektarbeit Strategisches Marketing }
+\def\labnum{1}
+\def\study{Master Mechatronik}
+\def\branch{Smart Technologies}
+\def\term{2.}
+\def\lecturer{Maria Wallnöfer}
+\def\group{MA-MECH-23-BB}
+\def\student{Ammann Michael, Sieß Lukas, Bletzacher Christoph, Adl Thomas}
+
+%% --------------------------------------------------------------------- %%
+
+%% -> Beginn des Dokumentes
+
+\begin{document}
+\newcounter{romanPagenumber}
+
+%% -> Sprache auswählen
+\ifthenelse{\boolean{english}}{\selectlanguage{english}}{\selectlanguage{ngerman}}
+% \selectlanguage{ngerman}
+% \selectlanguage{english}
+
+%% -> Fußzeile und Kopfzeile einfügen
+\pagestyle{fancy}
+
+\pagenumbering{Roman}
+%% -> Deckblatt laden
+\input{Deckblatt/Deckblatt}
+
+\setcounter{romanPagenumber}{\value{page}}
+
+%% -> Inhaltsverzeichnis
+\tableofcontents%\thispagestyle{empty}
+\clearpage
+
+\pagestyle{fancy}
+\pagenumbering{arabic}
+
+%% --------------------------------------------------------------------- %%
+%% -> Anfang
+\input{Chapters/Aufgaben}
+
+%\input{Chapters/ResultsInterpretation}
+%% -> Schlussteil
+%\input{Chapters/Conclusions}
+%% --------------------------------------------------------------------- %%
+
+\clearpage
+
+%% --------------------------------------------------------------------- %%
+
+%% Aufrufen der Einträge im Symbolverzeichniss
+\glsaddall
+%% -> Verzeichnisse
+\pagestyle{fancy}
+\pagenumbering{Roman}
+\addtocounter{romanPagenumber}{1}
+\setcounter{page}{\theromanPagenumber}
+
+\input{Verzeichnisse/Verzeichnisse}
+%% --------------------------------------------------------------------- %%
+\clearpage
+% -> Anhang
+ \begin{appendix}
+ 	\input{Anhang/Anhang}
+ \end{appendix}
+
+\end{document}

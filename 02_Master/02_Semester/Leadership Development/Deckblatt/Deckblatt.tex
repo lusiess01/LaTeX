@@ -1,0 +1,40 @@
+%% Deckblatt %%
+
+\thispagestyle{empty}
+\sffamily
+\ThisTileWallPaper{\paperwidth}{\paperheight}{Deckblatt/MCIHintergrundKPL.pdf}
+
+\vspace*{1cm}
+\def\thesis{\ifthenelse{\boolean{english}}{Abschlussbericht}{Zusammenfassung}}
+\textcolor{MSBlue}{\rmfamily\bfseries\Huge\thesis}
+
+\vspace*{0.5cm}
+\textbf{\labtitle{}( \labcode)}
+
+\textbf{\labname}
+
+%\ifthenelse{\boolean{english}}{\textbf{Report} }{\textbf{Labor }}\textbf{\labnum}
+
+
+\vspace*{14cm}
+
+\textcolor{gray}{\study}
+
+% \def\studybranch{\ifthenelse{\boolean{english}}{Study Branch}{Studienzweig}}
+% \textcolor{gray}{\studybranch: \branch}
+
+\def\termname{\ifthenelse{\boolean{english}}{semester}{Semester}}
+\textcolor{gray}{\term{ }\termname}
+
+\def\lecturername{\ifthenelse{\boolean{english}}{Responsible lecturer}{Lehrveranstaltungsleiter}}
+\textcolor{gray}{\lecturername: \lecturer}
+
+\def\groupname{\ifthenelse{\boolean{english}}{Group}{Jahrgang}}
+\textcolor{gray}{\groupname: \group}
+
+\def\authorname{\ifthenelse{\boolean{english}}{Author}{Verfasser}}
+\textcolor{gray}{\authorname: \student}
+
+\textcolor{gray}{\today}
+
+\newpage
