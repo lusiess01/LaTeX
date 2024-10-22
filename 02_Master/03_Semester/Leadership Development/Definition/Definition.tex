@@ -65,7 +65,8 @@
 %% -> Erweiterte Einstellungen der Bildunterschriften bzw. Tabellenunterschriften
 \usepackage{caption}
 \usepackage{subcaption}
-\captionsetup[figure]{labelfont=footnotesize, textfont=footnotesize}
+\DeclareCaptionLabelFormat{custom}{#1 #2:\,}
+\captionsetup[figure]{labelfont=footnotesize, textfont=footnotesize, labelsep=none, labelformat=custom}
 \captionsetup[table]{labelfont=footnotesize, textfont=footnotesize}
 
 %% -> Hyperref
