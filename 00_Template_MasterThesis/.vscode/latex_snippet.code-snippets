@@ -1,0 +1,26 @@
+{
+  "Figure Template": {
+    "prefix": "myfig",
+    "body": [
+      "\\begin{figure}[!ht]",
+      "\t\\centering",
+      "\t\\includegraphics[width=0.62\\textwidth]{${1:filename.eps}}",
+      "\t\\caption[${2:Kurzbeschreibung}]{${3:Abbildungsüberschrift}}",
+      "\t\\label{fig:${4:label}}",
+      "\\end{figure}"
+    ],
+    "description": "Inserts a figure with 62% of text width"
+  },
+
+  "Equation Template": {
+    "prefix": "myeq",
+    "body": [
+      "\\begin{equation}",
+      "\t${1:Formel eingeben}",
+      "\t\\label{eqn:${3:label einfügen}}",
+      "\\end{equation}"
+    ],
+    "description": "Template for equation"
+  }
+
+}

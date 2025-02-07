@@ -1,0 +1,12 @@
+\begin{tikzpicture}[scale=1,transform shape,european inductors,european resistors,
+    american voltages]
+    % grid definition
+    % \draw[step=0.5,black!20,thin] (-4,-2.5) grid (4,2.5);
+    % circuit definition
+    \draw (0,0) coordinate (A) to [R,l=$R_\mathrm{1}$] ++ (-3,0) coordinate (B);
+    \draw (B) to [vsource,l=$V_\mathrm{1}$] ++ (0,-2) -- ++ (3,0) coordinate (C);
+    \draw (C) to [R,l=$R_\mathrm{L}$] (A);
+    \draw (A) to [R,l_=$R_\mathrm{2}$,*-] ++ (3,0) coordinate (D);
+    \draw (D) to [vsource,l=$V_\mathrm{2}$] ++ (0,-2) to [short,-*] (C);
+\end{tikzpicture}
+% EOF

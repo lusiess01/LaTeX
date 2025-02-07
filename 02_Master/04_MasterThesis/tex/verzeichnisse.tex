@@ -1,0 +1,37 @@
+% Literaturverzeichnis IEEE-gerecht
+\bibliographystyle{IEEEtran}	
+\bibliography{Literatur}
+\ifthenelse{\boolean{english}}{\addcontentsline{toc}{chapter}{Bibliography}}{\addcontentsline{toc}{chapter}{Literaturverzeichnis}} % f"ugt den Eintrag "Abbildungsverzeichnis" im Inhaltsverzeichnis hinzu
+
+\pagenumbering{Roman}
+\setcounter{page}{\value{romancount}}
+
+\newpage
+
+% Abbildungsverzeichnis
+\listoffigures
+\ifthenelse{\boolean{english}}{\addcontentsline{toc}{chapter}{List of Figures}}{\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}} % f"ugt den Eintrag "Abbildungsverzeichnis" im Inhaltsverzeichnis hinzu
+\newpage
+
+% Tabellenverzeichnis
+\listoftables 
+\ifthenelse{\boolean{english}}{\addcontentsline{toc}{chapter}{List of Tables}}{\addcontentsline{toc}{chapter}{Tabellenverzeichnis}} % f"ugt den Eintrag "Tabellenverzeichnis" im Inhaltsverzeichnis hinzu
+\newpage
+
+% Symbolverzeichnis
+\ifthenelse{\boolean{english}}{\addchap{List of Symbols}}{\addchap{Symbolverzeichnis}}
+\begin{center}
+\hspace{-17mm}\begin{tabular}{>{\raggedleft}p{0.08\linewidth} p{0.3\linewidth} >{\raggedleft\arraybackslash}p{0.2\linewidth}}
+\ifthenelse{\boolean{english}}{symbol}{Symbol} &
+\ifthenelse{\boolean{english}}{name}{Bezeichnung} & \ifthenelse{\boolean{english}}{unit}{Einheit} \\\hline
+$a$ & \ifthenelse{\boolean{english}}{acceleration}{Beschleunigung} & $\unit{\frac{m}{s^2}}$\\
+$F$ & \ifthenelse{\boolean{english}}{force}{Kraft} & $\unit{N}$
+\end{tabular}
+\end{center}
+
+% Abk"urzungsverzeichnis
+\ifthenelse{\boolean{english}}{\addchap{Abbreviations}}{\addchap{Abk"urzungsverzeichnis}}
+\hspace{-17mm}\begin{tabular}{>{\raggedleft}p{0.2\linewidth} p{0.75\linewidth} p{0.1\linewidth}}
+www & World Wide Web \\
+URL & Uniform Resource Locator
+\end{tabular}

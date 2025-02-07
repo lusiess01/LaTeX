@@ -1,0 +1,39 @@
+\chapter{Introduction}
+\label{chapter:introduction}
+\section{Sample text}
+\label{section:sample_text}
+\lipsum[1]
+\section{Another sample text}
+\label{section:another_sample_text}
+\lipsum[2]
+\chapter{Theoretical background}
+\label{chapter:theoretical_bg}
+\section{Some facts}
+\label{section:some_facts}
+\lipsum[1]
+\section{Some more facts}
+\label{section:some_more_facts}
+\lipsum[2]
+\chapter{Tips and Tricks}
+\label{chapter:tips_and_tricks}
+\section{Cross-referencing and citing}
+\label{section:cross_ref_and_citing}
+
+\begin{itemize}
+	\item \num{1234,56}  % Zahl mit Dezimaltrennzeichen
+	\item \SI{2}{\meter^{-1}} % Einheit m^-1 ohne Bruch
+	\item \SI{1.23e4}{\newton\meter} % Exponenten mit Punkt als Produkt
+	\item \SI{1000}{\kilo\ohm} % Tausender ohne Trennzeichen
+\end{itemize}
+\section{Circuits and graphs}
+\label{section:circuits_and_graphs}
+\Cref{fig:demo_circuit} shows a simple linear and time-independent circuit, which is created with the package \texttt{circuitikz}. When using the \texttt{tikzexternalize} feature, the \texttt{circuitikz} environment must be substituted with \texttt{tikzpicture}. 
+\begin{figure}[htbp]
+	\centering
+	\input{tikz/circuit.tex}
+	\caption{A simple circuit}
+	\label{fig:demo_circuit}
+\end{figure}
+
+Waveforms captured by an oscilloscope are depicte \cite{deutsch}, im Anhang ist dann ein weiterer
+Code verknüpft siehe dazu \ref{lst:test_code} und in \cref{fig:demo_circuit} und \ref{fig:demo_circuit} ist ein Schaltkreis mit tikz gezeichnet.

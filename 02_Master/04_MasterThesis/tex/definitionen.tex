@@ -1,0 +1,74 @@
+% deutsche Anpassungen
+%\usepackage[ansinew]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman,english]{babel}
+%\usepackage{babelbib}
+
+% mathematische Symbole
+\usepackage{amsmath,amssymb,amsfonts,amstext}
+
+% Listings
+\usepackage{listings}
+\lstset{numbers=left,numberstyle=\tiny,stepnumber=5,numbersep=5pt}
+
+% erweiterte Zeichenbefehle
+\usepackage{pst-all}
+
+% Kopfzeilen frei gestaltbar
+\usepackage{fancyhdr}
+\lfoot[\fancyplain{}{}]{\fancyplain{}{}}
+\rfoot[\fancyplain{}{}]{\fancyplain{}{}}
+\cfoot[\fancyplain{}{\footnotesize\thepage}]{\fancyplain{}{\footnotesize\thepage}}
+\lhead[\fancyplain{}{\footnotesize\nouppercase\leftmark}]{\fancyplain{}{}}
+\chead{}
+\rhead[\fancyplain{}{}]{\fancyplain{}{\footnotesize\nouppercase\sc\leftmark}} 
+
+% Farben im Dokument m"oglich
+\usepackage{color}
+
+% Schriftart Helvetica
+\usepackage{helvet}
+\renewcommand{\familydefault}{phv}
+
+% anderdhalbfacher Zeilenabstand
+\usepackage{setspace}
+\onehalfspacing
+
+% Graphiken einbinden: hier f"ur pdflatex
+\usepackage[dvips]{graphicx}
+
+% verbesserte Floating Plazierung
+\usepackage{float}
+
+% "Uberpr"ufung des Layouts
+\usepackage{layout}
+
+\usepackage{array}
+
+% erweiterte Einstellungen der Bildunterschriften -> 8 Pt
+\usepackage[small]{caption}
+\captionsetup{belowskip=12pt,aboveskip=4pt}
+
+\usepackage{ifthen}
+
+% H"ohe und Breite des Textk"orpers etwas gr"osser definieren
+\usepackage[tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in]{geometry}
+
+% Einr"uckung von und Abstand zwischen Abs"atzen
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1.5ex plus0.5ex minus0.5ex}
+
+% weniger Warnungen wegen "uberf"ullter Boxen
+\tolerance = 9999
+\sloppy
+
+% Anpassung einiger "Uberschriften 
+\renewcommand\figurename{Abbildung}
+\renewcommand\tablename{Tabelle}
+%\newcommand{\unit}{\mathrm}
+
+% Counter f"ur die Nummerierung
+\newcounter{romancount}
+
+% Boolsche Variable f"ur Bachelor-/Masterarbeit oder Bericht
+\newboolean{thesis}

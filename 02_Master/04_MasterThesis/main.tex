@@ -1,0 +1,69 @@
+\documentclass[a4paper,11pt,oneside,titlepage,openany,onecolumn]{scrreprt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{ifthen}
+\newboolean{english}
+\setboolean{english}{true}
+
+
+\def\title{Development of a vibrotactile stimulation system for cognitive rehabilitation}
+\def\study{Mechatronics \& Smart Technologies}
+\def\thesis{Master Thesis}
+\def\degree{"Master of Science in Engineering"}
+\def\student{Lukas Sieß}
+\def\matnr{52010293}
+\def\address{6591 Grins, Grins 107H}
+\def\reviewerone{Prof. Yeongmi Kim, PhD}
+
+
+\input{tex/definitionen.tex}
+
+\begin{document}
+
+\ifthenelse{\boolean{english}}{\selectlanguage{english}}{\selectlanguage{english}}
+
+%\layout
+
+% Kopf- und Fusszeilen initiieren
+\pagestyle{plain}
+
+\pagenumbering{Roman}
+\input{tex/deckblatt.tex}
+\input{tex/eid.tex}
+\input{tex/dank.tex}
+\input{tex/kurzfassung.tex}
+
+\ifthenelse{\boolean{english}}{\selectlanguage{english}}{\selectlanguage{english}}
+
+\tableofcontents%\thispagestyle{empty}
+\newpage
+
+\setcounter{romancount}{\value{page}}
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+% Kopf- und Fusszeilen initiieren
+\pagestyle{fancy}
+
+\selectlanguage{english}
+
+\input{tex/kapitel1.tex}
+\input{tex/kapitel2.tex}
+\input{tex/kapitel3.tex}
+\input{tex/kapitel4.tex}
+\input{tex/kapitel5.tex}
+\input{tex/kapitel6.tex}
+
+\selectlanguage{english}
+
+\input{tex/verzeichnisse.tex}
+
+% Anh"ange
+\selectlanguage{english}
+\begin{appendix}
+	\input{tex/anhangA.tex}
+	\input{tex/anhangA.tex}
+\end{appendix}
+
+\end{document}

@@ -1,0 +1,29 @@
+\chapter[Formatierungen]{Formatierungen von "Uberschriften und Text in Latex}
+
+In Latex brauchen Sie sich um Formatierungen im Prinzip nicht k"ummern. Es ist lediglich notwendig, dass Sie Kapitel, Abschnitte, Unterabschnitte und so weiter als solche deklarieren.
+
+Multiple Leerzeichen        werden von Latex einfach gel"oscht. Haben Sie einen Absatz beendet (nach 3 bis 4 S"atzen), dann lassen Sie durch ein zweimaliges ''Enter'' eine Zeile Abstand. Der Absatz wird je nach globaler Einstellung einger"uckt oder abgesetzt.
+
+Wollen Sie im Text etwas hervorheben, dann verwenden Sie \emph{hervorgehoben}. Die Hervorhebung wird von Latex automatisch dem jeweiligen Textstil angepasst. Sie k"onnen aber auch etwas explizit \textbf{fett}, \textit{kursiv} oder \underline{unterstrichen} setzen, wobei dies mit Vorsicht zu genie"sen ist.
+
+\section[Abschnitt]{Das wäre ein Abschnitt}
+
+Mit etwas Text ...
+
+\subsection[Unterabschnitt]{Bzw. ein Unterabschnitt}
+
+Wie Ihnen vielleicht schon aufgefallen ist, vergr"o"sert \LaTeX nach einem ''.'' den Abstand geb"uhrlich f"ur ein Satzende. Falls dies nicht ben"otigt wird z.B.~hier, sollte dies h"andisch verhindert werden.
+
+\paragraph{Gliederungsebene 3} Die n"achste Gliederungsebene wird nicht mehr nummeriert.
+
+\LaTeX kennt auch Aufz"ahlungen wobei es diese mit
+\begin{enumerate}
+\item Nummerierung
+\item\label{enum-ebene} auf der ersten Ebene
+\item oder
+\begin{itemize}
+\item ohne Nummerierung
+\item auf der 2.~Ebene gibt.
+\end{itemize}
+\end{enumerate}
+Es gibt eine ganze Reihe von weiteren Formatierungsm"oglichkeiten. Z.B.~behandelt {\LaTeX} die erste Seite eines Kapitels anders als alle folgenden. Dies f"allt insbesondere bei der Seitenzahl und der Kopfzeile auf.

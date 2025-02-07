@@ -1,0 +1,60 @@
+\documentclass[a4paper,11pt,oneside,titlepage,openany,onecolumn]{scrreprt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{tex/definition.tex}
+\loadglsentries{tex/defsymbols.tex}
+
+% Titlepage
+
+\def\title{Titel der Arbeit}
+\def\study{Mechatronics \& Smart Technologies}
+\def\thesis{Masterarbeit}
+\def\degree{"Master of Science in Engineering"}
+\def\student{Max Mustermann}
+\def\matnr{666}
+\def\address{A-PLZ Ort, Stra{\ss}e Hausnummer}
+\def\reviewerone{Dr. Martina Musterfrau}
+\def\reviewertwo{Dr. Markus Mustermann}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+    \selectlanguage{ngerman}
+    \pagenumbering{alph} % use lowercase letters for page numbering
+    \include{tex/titlepage.tex} % include title page
+    \pagenumbering{Roman}  % use uppercase roman numerals for page numbering
+    \include{tex/eid.tex} % include eid
+    \include{tex/abstract_de.tex} % include abstract (german version)
+    \include{tex/abstract_en.tex} % include abstract (english version)
+    \pdfbookmark[0]{\contentsname}{toc} % sets a PDF bookmark
+    \tableofcontents
+    \newcounter{romanpagecount} % create a new counter
+    \setcounter{romanpagecount}{\value{page}} % capture the current page number
+    \clearpage
+    \pagenumbering{arabic} % use Arabic numerals for page numbering
+	% --> add content of thesis here
+    \include{tex/kapitel1.tex}
+    \include{tex/kapitel2.tex}
+    \include{tex/kapitel3.tex}
+    \include{tex/kapitel4.tex}
+    \include{tex/kapitel5.tex}
+    \include{tex/kapitel6.tex}
+    \include{tex/demo.tex}
+    \pagenumbering{Roman} % use uppercase roman numerals for page numbering
+	\setcounter{page}{\value{romanpagecount}} % set page number to the stored value
+    \stepcounter{page} % increment the page counter
+    \bibliography{IEEEabrv,mybibfile} % point BibTEX at the .bib files
+	\addcontentsline{toc}{chapter}{\bibname}
+    \clearpage
+	\listoffigures % generate a list of all the figures
+	\addcontentsline{toc}{chapter}{\listfigurename}
+    \clearpage
+	\listoftables % generate a list of all the tables
+	\addcontentsline{toc}{chapter}{\listtablename}
+	\clearpage
+    \printglossary[type=acronym, title={Abkürzungsverzeichnis}] % input files created by MakeIndex
+	\printglossary[type=symbolslist,style=symbolsliststyle, title={Symbolverzeichnis}]
+    \appendix
+    \include{tex/anhangA.tex}
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

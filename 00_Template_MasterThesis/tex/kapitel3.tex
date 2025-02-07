@@ -1,0 +1,28 @@
+\chapter{Bilder und Tabellen}
+
+Ein Bild kann an jeder Stelle eingefügt werden. Prinzipiell funktioniert zwar jedes Bildformat (ausgenommen gewisser Grauslichkeiten wie WMF etc.), Postscript und enhanced Postscript bzw PDF haben sich aber besonders bewährt. Tabelle \ref{tab: Vorgegebene Größen_1} ist ein Beispiel dafür, wie eine Tabelle aussehen könnte.
+
+\begin{table}[htp]
+	\centering
+	\caption[Vorgegebene Größen\_1]{Vorgegebene Größen\_1}
+	\label{tab: Vorgegebene Größen_1}
+	\footnotesize
+	%\resizebox{.5\textwidth}{!}{
+		\begin{tabular}{l l r}
+			\toprule
+			Beschreibung & Abkürzung & Größe \\
+			\midrule
+			Versorgungsspannung & $U_b$ & $20$\,\si{\volt}\\
+			Eingangsspannung & $U_{ein}$ & $\pm0,5$\,\si{\volt}\\
+			Ausgangsspannung & $U_{aus}$ & $\pm5$\,\si{\volt}\\
+			Untere Grenzfrequenz & $f_{gu}$ & $100$\,\si{\hertz}\\
+			Obere Grenzfrequenz & $f_{go}$ & $10$\,\si{\kilo\hertz}\\
+			Eingangswiderstand & $R_{ein}$ & $10$\,\si{\kilo\ohm}\\
+			Lastwiderstand & $R_{aus}$ & $10$\,\si{\kilo\ohm}\\
+			\bottomrule
+		\end{tabular}
+		%}
+\end{table}
+
+
+
