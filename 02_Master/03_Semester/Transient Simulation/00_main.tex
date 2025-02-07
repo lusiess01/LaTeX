@@ -1,0 +1,77 @@
+\documentclass[a4paper, oneside, 11pt]{article}
+%% -> Für längere Arbeiten "report" benutzen.
+
+%% --------------------------------------------------------------------- %%
+\usepackage{pdfpages}
+\usepackage{ifthen}
+\newboolean{english}
+%\setboolean{english}{true} %% -> Kommentar entfernen bei englischen Arbeiten
+
+%% --------------------------------------------------------------------- %%
+
+%% -> Einfügen der Definitionen
+\input{Definition/Definition}
+
+%% -> Deckblatt ausfüllen 
+\def\labtitle{Industrial Electronics }
+\def\labcode{MECH-M-3-IEL-IEL-ILV}
+\def\labname{}
+\def\labnum{Berichtnummer}
+\def\study{Master Mechatronic \& Smart Technologies}
+\def\branch{}
+\def\term{3.}
+\def\lecturer{Thomas Gadner}
+\def\group{MA-MECH-23-BB}
+\def\student{Lukas Sieß}
+
+%% --------------------------------------------------------------------- %%
+\begin{document}
+\newcounter{romanPagenumber}
+
+%% -> Sprache auswählen
+\ifthenelse{\boolean{english}}{\selectlanguage{english}}{\selectlanguage{ngerman}}
+\selectlanguage{ngerman}
+%\selectlanguage{english}
+
+\pagestyle{fancy} % Fußzeile und Kopfzeile einfügen
+
+\pagenumbering{Roman}
+
+\input{Deckblatt/Deckblatt} % Deckblatt laden
+
+\setcounter{romanPagenumber}{\value{page}}
+
+\tableofcontents%\thispagestyle{empty}   % Inhaltsverzeichnis
+\clearpage
+
+\pagestyle{fancy}
+\pagenumbering{arabic}
+% =============================================================================
+\input{document/1_einleitung}
+\newpage
+\input{document/2_Task1}
+\newpage
+\input{document/3_Task2}
+\newpage
+\input{document/4_Layout}
+\newpage
+% =============================================================================
+
+\clearpage
+
+%% -> Verzeichnisse
+\pagestyle{fancy}
+\pagenumbering{Roman}
+\addtocounter{romanPagenumber}{1}
+\setcounter{page}{\theromanPagenumber}
+%% --------------------------------------------------------------------- %%
+\clearpage
+%Appendix
+\clearpage
+\fancyhead[L]{}
+\fancyhead[R]{\MakeUppercase{ANHANG}}
+\appendix 
+\addcontentsline{toc}{section}{ANHANG}
+\input{document/99_appendix} 
+
+\end{document}

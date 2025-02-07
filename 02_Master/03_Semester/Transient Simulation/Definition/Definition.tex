@@ -1,0 +1,186 @@
+%% -> Deutsche Anpassung 
+\usepackage[T1]{fontenc}
+\usepackage[ngerman,english]{babel}
+%\usepackage{babelbib}
+\usepackage{ifthen}
+%% --------------------------------------------------------------------- %%
+
+%% -> Farben einfügen
+\usepackage{color}
+\usepackage{xcolor}
+
+% -> Definierte Farben
+\definecolor{MSBlue}{rgb}{.204,.353,.541} 
+\definecolor{trueblue}{rgb}{0.0, 0.45, 0.81}
+\definecolor{onyx}{rgb}{0.06, 0.06, 0.06}
+\definecolor{mygruen}{rgb}{0.4660, 0.6740, 0.1880}
+\definecolor{plotblue}{rgb}{0, 0.4470, 0.7410}
+\definecolor{myrot}{rgb}{0.8500, 0.3250, 0.0980}
+\definecolor{mygreen}{RGB}{28,172,0} %% Matlab Kommentar
+\definecolor{mylilas}{RGB}{170,55,241} %% Matlab String
+
+%% --------------------------------------------------------------------- %%
+
+%% -> Grafiken 
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{wallpaper}
+\usepackage{float} %% Verbessert die Platzierung
+\usepackage{placeins} %Für \FloatBarrier beim Einfügen von Abbildungen
+\usepackage{matlab-prettifier} % MATLAB code
+\usepackage{epstopdf}
+%% --------------------------------------------------------------------- %%
+
+\usepackage[tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in]{geometry}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1.5ex plus0.5ex minus0.5ex}
+\usepackage{setspace}
+\onehalfspacing
+
+\usepackage{pst-all} %% erweiterte Zeichenbefehle
+
+%% -> Schriftart
+\usepackage{helvet}
+\renewcommand{\familydefault}{phv}
+
+%% -> Layout Überprüfung
+\usepackage{layout}
+\usepackage{xspace}
+
+%% -> Für Tabellen
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{dcolumn}
+\usepackage{multirow}
+
+%% -> Einrücken von und Abstand zwischen Absätzen
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1.5ex plus0.5ex minus0.5ex}
+
+%% -> Tabulator Funktion
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+%% -> Weniger Warnungen wegen überfüllter Boxen
+\tolerance = 9999
+\sloppy
+
+%% -> Erweiterte Einstellungen der Bildunterschriften bzw. Tabellenunterschriften
+\usepackage{caption}
+\usepackage{subcaption}
+\captionsetup[figure]{labelfont=footnotesize, textfont=footnotesize}
+%\captionsetup[table]{labelfont=footnotesize, textfont=footnotesize}
+
+%% -> Hyperref
+%\usepackage[pdftex,bookmarks=true,bookmarksnumbered=true,]{hyperref}
+
+\usepackage[hidelinks]{hyperref}
+% \usepackage[colorlinks=true]{hyperref}
+% \hypersetup{
+% colorlinks=true,
+% linkbordercolor={1 0 0},
+% citebordercolor={0 1 0},
+% filebordercolor={1 0 1},
+% runbordercolor={1 0 1},
+% urlbordercolor={0 0 1},
+% }
+
+%% -> Quellen
+\usepackage[super, square, sort&compress]{natbib}
+
+%%-> Weitere nützliche Pakete
+\usepackage{todonotes}
+\setlength {\marginparwidth }{2cm}
+%% --------------------------------------------------------------------- %%
+
+% -> Für Codes zum einfügen
+\usepackage{listings}
+%\lstset{numbers=left,numberstyle=\tiny,stepnumber=5,numbersep=5pt}
+
+%% -> Für MATLAB Code
+\lstset
+{language=Matlab,%
+    basicstyle=\scriptsize,
+    breaklines=true,%
+    captionpos=b,
+    frame = single,
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%
+    %numbers=left,%
+    %numberstyle={\footnotesize \color{black}},%
+    %stepnumber=5, %
+    %numbersep=9pt, % 
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %
+    emph=[2]{all}, emphstyle=[2]\color{mylilas},    
+}
+%% --------------------------------------------------------------------- %%
+
+% -> Kopf und Fußzeile gestallten
+\usepackage{fancyhdr}
+\setlength{\headheight}{13.6pt}
+\setlength{\footskip}{41pt}
+\rhead{} 
+\chead{} 
+\lhead{}
+\renewcommand{\headrulewidth}{0pt}
+\lfoot{\includegraphics[width=\textwidth*1/6]{Definition/DUH-positive.eps}}
+\rfoot{\small\thepage}
+\cfoot{}
+\renewcommand{\footrulewidth}{0pt}
+%% --------------------------------------------------------------------- %%
+
+%% -> Matematische Packages
+\usepackage{amsmath,amssymb,amsfonts,amstext}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+
+%% -> SI-Einheiten
+%\usepackage{units}
+\usepackage{siunitx}
+% \usepackage{physics}
+\sisetup{locale = DE,separate-uncertainty}
+\sisetup{list-final-separator={ und }}
+\sisetup{per-mode=fraction}
+\DeclareSIUnit\Pascal{\newton\per\square\metre}
+%\sisetup{output-decimal-marker = {.}} %% Für Punkttrennung nur bei englischen Arbeiten erforderlich
+%% --------------------------------------------------------------------- %%
+
+%% -> Für die Überschriften
+\usepackage{titlesec}
+\titleformat{\section}{\LARGE\sffamily\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\Large\bfseries\sffamily}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\large\sffamily\bfseries}{\thesubsubsection}{1em}{}
+%% --------------------------------------------------------------------- %%
+
+%% -> Bildnummerierung ist logisch mit Kapitelnummerierung
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+\numberwithin{equation}{section}
+%\numberwithin{equation}{subsection}
+%% --------------------------------------------------------------------- %%
+
+%% -> Schaltplan zeichnen und Grafiken und für PGF Plots
+\usepackage[european, siunitx]{circuitikz}
+\usetikzlibrary{circuits.ee.IEC}
+\usepackage{tikz}
+\usepackage{tikzscale}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.4}
+\newlength\figH
+\newlength\figW
+\setlength{\figH}{6cm}
+\setlength{\figW}{8cm}
+%% --------------------------------------------------------------------- %%
+
+%% -> Für Vektoren
+\usepackage{amsmath}
+
+% For pie-charts
+\usepackage{amsmath,amssymb,amsfonts,amstext}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{pgf-pie}
