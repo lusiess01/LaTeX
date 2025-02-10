@@ -1,1 +1,16 @@
 \section{Einleitung} \label{sec:einleitung}
+
+
+In diesem Bericht wird die Umsetzung der zweiten Aufgabe im Rahmen der Regelungstechnik und Leistungselektronik analysiert. Ziel dieser Untersuchung ist die praxisnahe Anwendung theoretischer Konzepte aus den ersten beiden Semestern der Regelungstechnik durch die Modellierung und Regelung eines Leistungselektroniksystems. Hierbei wird ein digitaler Regler entworfen und auf einer geeigneten Plattform implementiert.
+
+Die Aufgabenstellung gliedert sich in zwei zentrale Arbeitsschritte:
+\begin{itemize}
+    \item Modellierung eines Leistungselektronik-Wandlers in PLECSIm ersten Schritt wird ein Modell eines Leistungselektronik-Wandlers unter Verwendung von PLECS erstellt. Dieses Modell bildet die Grundlage für die nachfolgende Regelungsstrategie. Um die Komplexität der Regelung zu reduzieren, kann das System so ausgelegt werden, dass es eine vergleichsweise träge Dynamik aufweist. Dadurch wird es ermöglicht, klassische kontinuierliche Regler zu verwenden, sofern eine ausreichend hohe Abtastrate gewährleistet ist. (Siehe Abbildung: \label{fig:Soft})
+
+    \item Implementierung des Modells auf einer RTBox mit einem STM-Mikrocontroller als ReglerNach der erfolgreichen Modellierung erfolgt die Implementierung des Wandlers auf einer RTBox. Die Regelung des Systems wird durch einen Mikrocontroller (STM) realisiert, welcher die Steueralgorithmen ausführt und die Systemleistung in Echtzeit analysiert.
+\end{itemize}
+
+
+Implementierung des Modells auf einer RTBox mit einem STM-Mikrocontroller als ReglerNach der erfolgreichen Modellierung erfolgt die Implementierung des Wandlers auf einer RTBox. Die Regelung des Systems wird durch einen Mikrocontroller (STM) realisiert, welcher die Steueralgorithmen ausführt und die Systemleistung in Echtzeit analysiert.
+
+Dieser Bericht dokumentiert die einzelnen Entwicklungs- und Implementierungsschritte unter Berücksichtigung der theoretischen Grundlagen sowie der praktischen Herausforderungen. Der Fokus liegt auf der präzisen Modellbildung, der Auswahl geeigneter Regelungsparameter sowie der erfolgreichen Umsetzung auf der RTBox mit einem STM-Mikrocontroller als Steuergerät.
