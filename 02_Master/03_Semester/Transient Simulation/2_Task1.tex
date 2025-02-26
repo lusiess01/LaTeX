@@ -1,9 +1,6 @@
-\section{Task 1} \label{sec:Task1}
+\section{Kapitel 1: Modellierung eines Leistungselektronik-Wandlers in PLECS} \label{sec:Task1}
 
-Die Modellierung eines Leistungselektronik-Wandlers ist ein essenzieller Schritt zur Analyse und Regelung des Systems. In diesem Kapitel wird zunächst die theoretische Grundlage für die Modellbildung erörtert. Anschließend wird das erstellte Modell detailliert beschrieben, einschließlich der verwendeten Komponenten und Parameter. Besondere Aufmerksamkeit wird auf die Wahl der Modellstruktur und deren Einfluss auf das dynamische Verhalten des Systems gelegt. Darüber hinaus werden mögliche Vereinfachungen diskutiert, um eine effiziente Implementierung des Reglers zu ermöglichen. (Siehe Abbildung: \ref{fig:ControllerSoft} und \ref{fig:SystemSoft})
-
-Ein besonderer Fokus lag auf der Auslegung eines PID-Reglers für das System. Verschiedene Methoden zur Bestimmung der Reglerparameter wurden getestet, darunter System Identification, State-Space-Modelle, Pole Placement und PID-Tuning. Trotz dieser Ansätze konnte der PID-Regler nicht erfolgreich ausgelegt werden. Die Übernahme von Parametern aus der Fachliteratur, beispielsweise aus dem Paper "Optimally Designed PID Controller for a DC-DC Buck Converter via a Hybrid Whale Optimization Algorithm with Simulated Annealing", lieferte ebenfalls nicht das gewünschte Ergebnis. Daher wurden die PID-Parameter letztendlich empirisch angepasst, um die gewünschte Regelgüte zu erreichen.
-
+Die Modellierung des Leistungselektronik-Wandlers ist ein zentraler Schritt zur Systemanalyse und Regelung. In diesem Kapitel wird die theoretische Grundlage erläutert, das Modell detailliert beschrieben und die Wahl der Modellstruktur sowie deren Auswirkungen auf das dynamische Verhalten diskutiert. Mögliche Vereinfachungen zur effizienten Implementierung des Reglers werden ebenfalls betrachtet. (Siehe Abbildung: \ref{fig:ControllerSoft} und \ref{fig:SystemSoft})
 
 \begin{figure}[H]
     \centering
@@ -26,12 +23,19 @@ Ein besonderer Fokus lag auf der Auslegung eines PID-Reglers für das System. Ve
     \label{fig:SystemSoft}
 \end{figure}
 
-
 \subsection{PID Auslegung}
+
+Ein besonderer Schwerpunkt lag auf der Auslegung eines PID-Reglers. Verschiedene Methoden zur Reglerparametrierung wurden getestet, darunter System Identification, State-Space-Modelle, Pole Placement und PID-Tuning. Keine dieser Methoden lieferte die gewünschten Ergebnisse. Auch die Übernahme von Parametern aus der Fachliteratur – z. B. aus dem Paper "Optimally Designed PID Controller for a DC-DC Buck Converter via a Hybrid Whale Optimization Algorithm with Simulated Annealing" – führte nicht zum Erfolg. Daher wurden die PID-Parameter empirisch angepasst, um eine stabile und performante Regelung zu gewährleisten. Die finalen Werte lauten:
+
+\begin{itemize}
+    \item Reglertyp: Discrete PI-Regler
+    \item P-Anteil: 0.002
+    \item I-Anteil: 7
+\end{itemize}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{Figure/Soft.eps}
+    \includegraphics[width=0.8\linewidth]{Figure/DiscretPIDController_Parameter.png}
     \caption{FFT LTC3639 mit Filter}
     \label{fig:SystemSoft}
 \end{figure}

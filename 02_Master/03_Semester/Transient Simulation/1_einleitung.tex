@@ -1,16 +1,14 @@
 \section{Einleitung} \label{sec:einleitung}
 
+Dieser Bericht dokumentiert die Umsetzung der zweiten Aufgabe im Bereich Regelungstechnik und Leistungselektronik. Ziel ist die praxisnahe Anwendung der theoretischen Grundlagen aus den ersten beiden Semestern, indem ein Leistungselektroniksystem modelliert und geregelt wird. Dazu wird ein digitaler Regler entworfen und auf einer geeigneten Plattform implementiert.
 
-In diesem Bericht wird die Umsetzung der zweiten Aufgabe im Rahmen der Regelungstechnik und Leistungselektronik analysiert. Ziel dieser Untersuchung ist die praxisnahe Anwendung theoretischer Konzepte aus den ersten beiden Semestern der Regelungstechnik durch die Modellierung und Regelung eines Leistungselektroniksystems. Hierbei wird ein digitaler Regler entworfen und auf einer geeigneten Plattform implementiert.
-
-Die Aufgabenstellung gliedert sich in zwei zentrale Arbeitsschritte:
+Die Aufgabenstellung gliedert sich in zwei wesentliche Arbeitsschritte:
 \begin{itemize}
-    \item Modellierung eines Leistungselektronik-Wandlers in PLECSIm ersten Schritt wird ein Modell eines Leistungselektronik-Wandlers unter Verwendung von PLECS erstellt. Dieses Modell bildet die Grundlage für die nachfolgende Regelungsstrategie. Um die Komplexität der Regelung zu reduzieren, kann das System so ausgelegt werden, dass es eine vergleichsweise träge Dynamik aufweist. Dadurch wird es ermöglicht, klassische kontinuierliche Regler zu verwenden, sofern eine ausreichend hohe Abtastrate gewährleistet ist. (Siehe Abbildung: \label{fig:Soft})
+    \item \textbf{Modellierung eines Leistungselektronik-Wandlers in PLECS:}
+    Zunächst wird ein Modell eines Leistungselektronik-Wandlers mit PLECS erstellt. Dieses Modell bildet die Basis für die spätere Regelung. Um die Komplexität der Regelung zu minimieren, wird das System so ausgelegt, dass die Dynamik möglichst träge ist. Dadurch kann eine Regelung mit klassischen kontinuierlichen Methoden erfolgen, sofern die Abtastrate hoch genug gewählt wird.  (Siehe Abbildung: \label{fig:Soft})
 
-    \item Implementierung des Modells auf einer RTBox mit einem STM-Mikrocontroller als ReglerNach der erfolgreichen Modellierung erfolgt die Implementierung des Wandlers auf einer RTBox. Die Regelung des Systems wird durch einen Mikrocontroller (STM) realisiert, welcher die Steueralgorithmen ausführt und die Systemleistung in Echtzeit analysiert.
+    \item \textbf{Implementierung des Modells auf einer RTBox mit einem STM-Mikrocontroller als Regler:}
+    Nach der Modellierung wird das System auf einer RTBox implementiert. Die Regelung erfolgt über einen STM-Mikrocontroller, der die Steueralgorithmen ausführt und das Systemverhalten in Echtzeit überprüft.
 \end{itemize}
 
-
-Implementierung des Modells auf einer RTBox mit einem STM-Mikrocontroller als ReglerNach der erfolgreichen Modellierung erfolgt die Implementierung des Wandlers auf einer RTBox. Die Regelung des Systems wird durch einen Mikrocontroller (STM) realisiert, welcher die Steueralgorithmen ausführt und die Systemleistung in Echtzeit analysiert.
-
-Dieser Bericht dokumentiert die einzelnen Entwicklungs- und Implementierungsschritte unter Berücksichtigung der theoretischen Grundlagen sowie der praktischen Herausforderungen. Der Fokus liegt auf der präzisen Modellbildung, der Auswahl geeigneter Regelungsparameter sowie der erfolgreichen Umsetzung auf der RTBox mit einem STM-Mikrocontroller als Steuergerät.
+Dieser Bericht legt den Fokus auf die präzise Modellbildung, die Auswahl geeigneter Regelparameter und die Implementierung auf der RTBox mit einem STM-Mikrocontroller.

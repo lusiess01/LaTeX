@@ -56,36 +56,30 @@
     }
   ],
 
-
   "editor.wordWrap": "wordWrapColumn",
   "editor.wordWrapColumn": 100,
   "editor.rulers": [100],
   "editor.fontSize": 14,
   "editor.snippetSuggestions": "inline",
 
-
-  "cSpell.language": "de, en",                   
+  "cSpell.language": "de-DE, en",
   "cSpell.enabledFileTypes": {
     "plaintext": true,
     "markdown": true,
     "latex": true
   },
-
-  "cSpell.dictionaries": ["german", "latex"],
+  "cSpell.dictionaries": ["de-de", "german", "latex"],
   "cSpell.ignoreRegExpList": [
     "\\\\[a-zA-Z]+",       
-    "\\{.*?\\}",          
-    "\\$.*?\\$",          
-    "\\[.*?\\]"       
+    "\\$.*?\\$"         
   ],
 
   "ltex.language": "auto",                    
   "ltex.enabled": ["latex"],
-  
+
   "latex-workshop.latex.search.rootFiles.include": [
-  "**/img/**/*",      
-  "**/Code/**/*",
-  "**/tikz/**/*"
+    "**/img/**/*",      
+    "**/Code/**/*",
+    "**/tikz/**/*"
   ]
-  
 }
