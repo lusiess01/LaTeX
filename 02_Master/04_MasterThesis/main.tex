@@ -20,50 +20,41 @@
 \input{tex/definitionen.tex}
 
 \begin{document}
-
-\ifthenelse{\boolean{english}}{\selectlanguage{english}}{\selectlanguage{english}}
-
-%\layout
-
-% Kopf- und Fusszeilen initiieren
-\pagestyle{plain}
-
-\pagenumbering{Roman}
+\selectlanguage{english}
+\pagenumbering{alph} % use lowercase letters for page numbering
 \input{tex/deckblatt.tex}
+\pagenumbering{Roman}  % use uppercase roman numerals for page numbering
 \input{tex/eid.tex}
 \input{tex/dank.tex}
 \input{tex/kurzfassung.tex}
-
-\ifthenelse{\boolean{english}}{\selectlanguage{english}}{\selectlanguage{english}}
-
-\tableofcontents%\thispagestyle{empty}
-\newpage
-
-\setcounter{romancount}{\value{page}}
-\setcounter{page}{1}
-\pagenumbering{arabic}
-
-% Kopf- und Fusszeilen initiieren
-\pagestyle{fancy}
-
-\selectlanguage{english}
-
+\pdfbookmark[0]{\contentsname}{toc} % sets a PDF bookmark
+\tableofcontents
+\newcounter{romanpagecount} % create a new counter
+\setcounter{romanpagecount}{\value{page}} % capture the current page number
+\clearpage
+\pagenumbering{arabic} % use Arabic numerals for page numbering
+% --> add content of thesis here
 \input{tex/kapitel1.tex}
 \input{tex/kapitel2.tex}
 \input{tex/kapitel3.tex}
 \input{tex/kapitel4.tex}
 \input{tex/kapitel5.tex}
 \input{tex/kapitel6.tex}
-
-\selectlanguage{english}
-
-\input{tex/verzeichnisse.tex}
-
-% Anh"ange
-\selectlanguage{english}
-\begin{appendix}
-	\input{tex/anhangA.tex}
-	\input{tex/anhangA.tex}
-\end{appendix}
-
+\pagenumbering{Roman} % use uppercase roman numerals for page numbering
+\setcounter{page}{\value{romanpagecount}} % set page number to the stored value
+\stepcounter{page} % increment the page counter
+\bibliographystyle{IEEEtran}
+\renewcommand\refname{Bibliography}
+\bibliography{literatur} % point BibTEX at the .bib files
+\addcontentsline{toc}{chapter}{Bibliography}
+\clearpage
+\listoffigures % generate a list of all the figures
+\addcontentsline{toc}{chapter}{\listfigurename}
+\clearpage
+\listoftables % generate a list of all the tables
+\addcontentsline{toc}{chapter}{\listtablename}
+\clearpage
+\printglossary[type=acronym, title={Abkürzungsverzeichnis}] % input files created by MakeIndex
+\appendix
+\include{tex/anhangA.tex}
 \end{document}
