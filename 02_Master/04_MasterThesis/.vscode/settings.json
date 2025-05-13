@@ -1,20 +1,4 @@
 {
-  "latex-workshop.latex.recipes": [
-    {
-      "name": "latexmk",
-      "tools": ["latexmk"]
-    },
-    {
-      "name": "pdflatex -> bibtex -> makeglossaries-lite -> pdflatex * 2",
-      "tools": [
-        "pdflatex",
-        "bibtex",
-        "makeglossaries-lite",
-        "pdflatex",
-        "pdflatex"
-      ]
-    }
-  ],
   "latex-workshop.latex.tools": [
     {
       "name": "latexmk",
@@ -56,6 +40,26 @@
     }
   ],
 
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "latexmk",
+      "tools": ["latexmk"]
+    },
+    {
+      "name": "pdflatex -> bibtex -> pdflatex x2",
+      "tools": ["pdflatex", "bibtex", "pdflatex", "pdflatex"]
+    },
+    {
+      "name": "pdflatex -> bibtex -> makeglossaries-lite -> pdflatex * 2",
+      "tools": [
+        "pdflatex",
+        "bibtex",
+        "makeglossaries-lite",
+        "pdflatex",
+        "pdflatex"
+      ]
+    }
+  ],
 
   "editor.wordWrap": "wordWrapColumn",
   "editor.wordWrapColumn": 100,
@@ -63,29 +67,26 @@
   "editor.fontSize": 14,
   "editor.snippetSuggestions": "inline",
 
-
-  "cSpell.language": "de, en",                   
+  "cSpell.language": "de, en",
   "cSpell.enabledFileTypes": {
     "plaintext": true,
     "markdown": true,
     "latex": true
   },
-
   "cSpell.dictionaries": ["german", "latex"],
   "cSpell.ignoreRegExpList": [
-    "\\\\[a-zA-Z]+",       
-    "\\{.*?\\}",          
-    "\\$.*?\\$",          
-    "\\[.*?\\]"       
+    "\\\\[a-zA-Z]+",
+    "\\{.*?\\}",
+    "\\$.*?\\$",
+    "\\[.*?\\]"
   ],
 
-  "ltex.language": "auto",                    
+  "ltex.language": "auto",
   "ltex.enabled": ["latex"],
-  
+
   "latex-workshop.latex.search.rootFiles.include": [
-  "**/img/**/*",      
-  "**/Code/**/*",
-  "**/tikz/**/*"
+    "**/img/**/*",
+    "**/Code/**/*",
+    "**/tikz/**/*"
   ]
-  
 }
