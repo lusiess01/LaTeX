@@ -29,61 +29,99 @@
     {
       "name": "bibtex",
       "command": "bibtex",
-      "args": ["%DOCFILE%"],
+      "args": [
+        "%DOCFILE%"
+      ],
       "env": {}
     },
     {
       "name": "makeglossaries-lite",
       "command": "makeglossaries-lite",
-      "args": ["%DOCFILE%"],
+      "args": [
+        "%DOCFILE%"
+      ],
       "env": {}
-    }
+    },
+    {
+      "name": "latex",
+      "command": "latex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOC%"
+      ],
+      "env": {}
+    },
+    {
+      "name": "dvips",
+      "command": "dvips",
+      "args": [
+        "%DOCFILE%.dvi"
+      ],
+      "env": {}
+    },
+    {
+      "name": "ps2pdf",
+      "command": "ps2pdf",
+      "args": [
+        "%DOCFILE%.ps"
+      ],
+      "env": {}
+    },
   ],
-
   "latex-workshop.latex.recipes": [
     {
       "name": "latexmk",
-      "tools": ["latexmk"]
+      "tools": [
+        "latexmk"
+      ]
     },
     {
       "name": "pdflatex -> bibtex -> pdflatex x2",
-      "tools": ["pdflatex", "bibtex", "pdflatex", "pdflatex"]
-    },
-    {
-      "name": "pdflatex -> bibtex -> makeglossaries-lite -> pdflatex * 2",
       "tools": [
         "pdflatex",
         "bibtex",
-        "makeglossaries-lite",
         "pdflatex",
         "pdflatex"
       ]
+    },
+    {
+      "name": "latex -> dvips -> ps2pdf",
+      "tools": [
+        "latex",
+        "dvips",
+        "ps2pdf"
+      ]
     }
   ],
-
   "editor.wordWrap": "wordWrapColumn",
   "editor.wordWrapColumn": 100,
-  "editor.rulers": [100],
+  "editor.rulers": [
+    100
+  ],
   "editor.fontSize": 14,
   "editor.snippetSuggestions": "inline",
-
   "cSpell.language": "de, en",
   "cSpell.enabledFileTypes": {
     "plaintext": true,
     "markdown": true,
     "latex": true
   },
-  "cSpell.dictionaries": ["german", "latex"],
+  "cSpell.dictionaries": [
+    "german",
+    "latex"
+  ],
   "cSpell.ignoreRegExpList": [
     "\\\\[a-zA-Z]+",
     "\\{.*?\\}",
     "\\$.*?\\$",
     "\\[.*?\\]"
   ],
-
   "ltex.language": "auto",
-  "ltex.enabled": ["latex"],
-
+  "ltex.enabled": [
+    "latex"
+  ],
   "latex-workshop.latex.search.rootFiles.include": [
     "**/img/**/*",
     "**/Code/**/*",

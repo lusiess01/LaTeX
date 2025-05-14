@@ -1,14 +1,11 @@
-% !TeX root = ../MasterThesis.tex
-
 \documentclass[a4paper,11pt,oneside,titlepage,openany,onecolumn]{scrreprt}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage{ifthen}
-\newboolean{english}
-\setboolean{english}{true}
+\input{tex/definitionen.tex}
+%\loadglsentries{tex/defsymbols.tex}
 
-
+% Titlepage
 \def\title{Development of a vibrotactile stimulation system for cognitive rehabilitation}
 \def\study{Mechatronics \& Smart Technologies}
 \def\thesis{Master Thesis}
@@ -18,45 +15,42 @@
 \def\address{6591 Grins, Grins 107H}
 \def\reviewerone{Prof. Yeongmi Kim, PhD}
 
-
-\input{tex/definitionen.tex}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-\selectlanguage{english}
-\pagenumbering{alph} % use lowercase letters for page numbering
-\input{tex/deckblatt.tex}
-\pagenumbering{Roman}  % use uppercase roman numerals for page numbering
-\input{tex/eid.tex}
-\input{tex/dank.tex}
-\input{tex/kurzfassung.tex}
-\pdfbookmark[0]{\contentsname}{toc} % sets a PDF bookmark
-\tableofcontents
-\newcounter{romanpagecount} % create a new counter
-\setcounter{romanpagecount}{\value{page}} % capture the current page number
-\clearpage
-\pagenumbering{arabic} % use Arabic numerals for page numbering
-% --> add content of thesis here
-\input{tex/kapitel1.tex}
-\input{tex/kapitel2.tex}
-\input{tex/kapitel3.tex}
-\input{tex/kapitel4.tex}
-\input{tex/kapitel5.tex}
-\input{tex/kapitel6.tex}
-\pagenumbering{Roman} % use uppercase roman numerals for page numbering
-\setcounter{page}{\value{romanpagecount}} % set page number to the stored value
-\stepcounter{page} % increment the page counter
-\bibliographystyle{IEEEtran}
-\renewcommand\refname{Bibliography}
-\bibliography{literatur} % point BibTEX at the .bib files
-\addcontentsline{toc}{chapter}{Bibliography}
-\clearpage
-\listoffigures % generate a list of all the figures
-\addcontentsline{toc}{chapter}{\listfigurename}
-\clearpage
-\listoftables % generate a list of all the tables
-\addcontentsline{toc}{chapter}{\listtablename}
-\clearpage
-\printglossary[type=acronym, title={Abkürzungsverzeichnis}] % input files created by MakeIndex
-\appendix
-\include{tex/anhangA.tex}
+    \selectlanguage{english}
+    \pagenumbering{alph} % use lowercase letters for page numbering
+    \input{tex/titlepage.tex} % include title page
+    \pagenumbering{Roman}  % use uppercase roman numerals for page numbering
+    \input{tex/eid.tex} % include eid
+    \include{tex/abstract_de.tex} % include abstract (german version)
+    \include{tex/abstract_en.tex} % include abstract (english version)
+    \pdfbookmark[0]{\contentsname}{toc} % sets a PDF bookmark
+    \tableofcontents
+    \newcounter{romanpagecount} % create a new counter
+    \setcounter{romanpagecount}{\value{page}} % capture the current page number
+    \clearpage
+    \pagenumbering{arabic} % use Arabic numerals for page numbering
+    % --> add content of thesis here
+    \input{tex/kapitel1.tex}
+    \input{tex/kapitel2.tex}
+    \input{tex/kapitel3.tex}
+    \input{tex/kapitel4.tex}
+    \input{tex/kapitel5.tex}
+    \input{tex/kapitel6.tex}
+    \pagenumbering{Roman} % use uppercase roman numerals for page numbering
+	\setcounter{page}{\value{romanpagecount}} % set page number to the stored value
+    \stepcounter{page} % increment the page counter
+    \bibliography{IEEEabrv,mybibfile} % point BibTEX at the .bib files
+	\addcontentsline{toc}{chapter}{\bibname}
+    \clearpage
+	\listoffigures % generate a list of all the figures
+	\addcontentsline{toc}{chapter}{\listfigurename}
+    \clearpage
+	\listoftables % generate a list of all the tables
+	\addcontentsline{toc}{chapter}{\listtablename}
+	\clearpage
+    \printglossary[type=acronym, title={Abkürzungsverzeichnis}] % input files created by MakeIndex
+	\printglossary[type=symbolslist,style=symbolsliststyle, title={Symbolverzeichnis}]
+    \appendix
+    \include{tex/anhangA.tex}
 \end{document}

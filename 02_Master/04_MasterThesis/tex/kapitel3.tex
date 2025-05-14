@@ -4,13 +4,13 @@
 This section provides an overview of the existing Voice Coil Actuator (VCA)-based setup. The System consists of seven main parts. 
 
 \begin{itemize}
-    \item Spring frame
-    \item Magnet Housing
-    \item Bobbin Coil
-    \item Node
-    \item Node screw
-    \item Rubber frame
-    \item Connection PCB
+    \item Spring frame (Minimizing the loss of vertical motion transmitted to the node)
+    \item Magnet Housing (fixed Magnetic field is always formed)
+    \item Bobbin Coil (Magnetic field is formed only when current flows)
+    \item Node (Transmitting vertical motion directly to the human body as sound and vibration)
+    \item Node screw (fixes the node to the bobbin coil)
+    \item Rubber frame (Suppresses vibration from the body from being transmitted to the outside world)
+    \item Connection PCB (Take the analog signal from the AMP and apply it to the bobbin coil)
 \end{itemize}
 
 \section{Dynamic Behavior: Frequency Measurement}
@@ -22,11 +22,12 @@ This section provides an overview of the existing Voice Coil Actuator (VCA)-base
 
 \subsection{Results \& Interpretation}
 
-\begin{figure}[!ht]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.62\textwidth]{img/Test_plot_1.eps}
-    \caption[Kurzbeschreibung]{Abbildungsüberschrift}
-    \label{fig:label}
+    \includegraphics[width=0.62\textwidth]{img/SpringTest.eps}
+    \caption[SpringTest]{SpringTest}
+    \label{fig:SpringTest}
 \end{figure}
+
 
 \section{Limitations and Identified Challenges}
