@@ -41,7 +41,7 @@ This section provides an overview of the existing Voice Coil Actuator (VCA)-base
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.62\textwidth]{img/ForecePlot.eps}
+    \includegraphics[width=0.62\textwidth]{plots/ForecePlot.eps}
     \caption[Force Plot]{Force Plot}
     \label{fig:ForcePlot}
 \end{figure}
@@ -59,11 +59,48 @@ This section provides an overview of the existing Voice Coil Actuator (VCA)-base
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.62\textwidth]{plots/SpringTest.eps}
+    \includegraphics[width=0.62\textwidth]{plots/SpringMeasurement.eps}
     \caption[SpringTest]{SpringTest}
     \label{fig:SpringTest}
 \end{figure}
 
+\FloatBarrier
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{plots/TimeWith36gMass.eps}
+    \caption{}
+    \label{subfig:TimeHerzionClassicMode}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{plots/TimeWithoutMass.eps}
+    \caption{}
+    \label{subfig:TimeHerzionEnergyMode}
+    \end{subfigure}
+    \vspace{0.1cm}
+    \caption[Time VCA]{(a) With 36g Mass (b) Without Mass}
+    \label{fig:PhaseAcontroll}
+\end{figure}
+\FloatBarrier
+
+\FloatBarrier
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{plots/FFTWith36gMass.eps}
+    \caption{}
+    \label{subfig:TimeHerzionClassicMode}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{plots/FFTWithoutMass.eps}
+    \caption{}
+    \label{subfig:TimeHerzionEnergyMode}
+    \end{subfigure}
+    \vspace{0.1cm}
+    \caption[FFT VCA]{(a) With 36g Mass (b) Without Mass}
+    \label{fig:PhaseAcontroll}
+\end{figure}
+\FloatBarrier
 
 \FloatBarrier
 \begin{figure}[ht]
@@ -78,8 +115,47 @@ This section provides an overview of the existing Voice Coil Actuator (VCA)-base
     \caption{}
     \label{subfig:TimeHerzionEnergyMode}
     \end{subfigure}
+    \begin{subfigure}[b]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{plots/TimeHerzionHealingMode.eps}
+    \caption{}
+    \label{subfig:TimeHerzionHealingMode}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{plots/TimeHerzionRecoveryMode.eps}
+    \caption{}
+    \label{subfig:TimeHerzionRecoveryyMode}
+    \end{subfigure}
     \vspace{0.1cm}
-    \caption[Phase A]{(a) TimeHerzionClassicMode (b) TimeHerzionEnergyMode}
+    \caption[Time Herzion]{(a) Classic Mode (b) Energy Mode (c) Healing Mode (d) Recovery Mode}
+    \label{fig:PhaseAcontroll}
+\end{figure}
+\FloatBarrier
+
+\FloatBarrier
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{plots/FFTHerzionClassicMode.eps}
+    \caption{}
+    \label{subfig:FFTHerzionClassicMode}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{plots/FFTHerzionEnergyMode.eps}
+    \caption{}
+    \label{subfig:FFTHerzionEnergyMode}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{plots/FFTHerzionHealingMode.eps}
+    \caption{}
+    \label{subfig:FFTHerzionHealingMode}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{plots/FFTHerzionRecoveryMode.eps}
+    \caption{}
+    \label{subfig:FFTHerzionRecoveryMode}
+    \end{subfigure}
+    \vspace{0.1cm}
+    \caption[FFT Herzion]{(a) Classic Mode (b) Energy Mode (c) Healing Mode (d) Recovery Mode}
     \label{fig:PhaseAcontroll}
 \end{figure}
 \FloatBarrier

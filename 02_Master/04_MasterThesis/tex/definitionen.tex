@@ -17,8 +17,9 @@
 % Basic packages (graphics, tables, code highlighting, epigraphs)
 % ****************************************************************************************
 \usepackage{graphicx} % provides enhanced support for including graphics and images
-% \usepackage{epstopdf}
-\graphicspath{{img/}} % list of directories in which to search for graphics files 
+\usepackage{placeins}    % for \FloatBarrier
+\usepackage{epstopdf}
+\graphicspath{{img/}} % list of directories in which to search for graphics files
 \usepackage[table]{xcolor} % extends the color capabilities of LaTeX
 \usepackage{color}
 \definecolor{MSBlue}{rgb}{.204,.353,.541} 
@@ -44,6 +45,8 @@
 \setlength{\marginparwidth}{2cm}
 \usepackage{todonotes}
 \usepackage{pst-all} %% erweiterte Zeichenbefehle
+
+
 
 % ****************************************************************************************
 % Drawing and plotting
