@@ -11,8 +11,7 @@
         "-pdf",
         "-outdir=%OUTDIR%",
         "%DOC%"
-      ],
-      "env": {}
+      ]
     },
     {
       "name": "pdflatex",
@@ -23,24 +22,17 @@
         "-shell-escape",
         "-file-line-error",
         "%DOC%"
-      ],
-      "env": {}
+      ]
     },
     {
       "name": "bibtex",
       "command": "bibtex",
-      "args": [
-        "%DOCFILE%"
-      ],
-      "env": {}
+      "args": ["%DOCFILE%"]
     },
     {
       "name": "makeglossaries-lite",
       "command": "makeglossaries-lite",
-      "args": [
-        "%DOCFILE%"
-      ],
-      "env": {}
+      "args": ["%DOCFILE%"]
     },
     {
       "name": "latex",
@@ -50,78 +42,59 @@
         "-interaction=nonstopmode",
         "-file-line-error",
         "%DOC%"
-      ],
-      "env": {}
+      ]
     },
     {
       "name": "dvips",
       "command": "dvips",
-      "args": [
-        "%DOCFILE%.dvi"
-      ],
-      "env": {}
+      "args": ["%DOCFILE%.dvi"]
     },
     {
       "name": "ps2pdf",
       "command": "ps2pdf",
-      "args": [
-        "%DOCFILE%.ps"
-      ],
-      "env": {}
-    },
+      "args": ["%DOCFILE%.ps"]
+    }
   ],
+
   "latex-workshop.latex.recipes": [
     {
       "name": "latexmk",
-      "tools": [
-        "latexmk"
-      ]
+      "tools": ["latexmk"]
     },
     {
       "name": "pdflatex -> bibtex -> pdflatex x2",
-      "tools": [
-        "pdflatex",
-        "bibtex",
-        "pdflatex",
-        "pdflatex"
-      ]
+      "tools": ["pdflatex", "bibtex", "pdflatex", "pdflatex"]
     },
     {
       "name": "latex -> dvips -> ps2pdf",
-      "tools": [
-        "latex",
-        "dvips",
-        "ps2pdf"
-      ]
+      "tools": ["latex", "dvips", "ps2pdf"]
     }
   ],
+
   "editor.wordWrap": "wordWrapColumn",
   "editor.wordWrapColumn": 100,
-  "editor.rulers": [
-    100
-  ],
+  "editor.rulers": [100],
   "editor.fontSize": 14,
   "editor.snippetSuggestions": "inline",
+
   "cSpell.language": "de, en",
   "cSpell.enabledFileTypes": {
     "plaintext": true,
     "markdown": true,
     "latex": true
   },
-  "cSpell.dictionaries": [
-    "german",
-    "latex"
-  ],
+  "cSpell.dictionaries": ["german", "latex"],
   "cSpell.ignoreRegExpList": [
     "\\\\[a-zA-Z]+",
     "\\{.*?\\}",
     "\\$.*?\\$",
     "\\[.*?\\]"
   ],
+
   "ltex.language": "auto",
-  "ltex.enabled": [
-    "latex"
-  ],
+  "ltex.enabled": ["latex"],
+  "ltex.java.path": "C:\\Program Files\\Eclipse Adoptium\\jdk-21.0.8.9-hotspot",
+
   "latex-workshop.latex.search.rootFiles.include": [
     "**/img/**/*",
     "**/Code/**/*",

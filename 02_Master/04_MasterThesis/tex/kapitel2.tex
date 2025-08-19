@@ -1,58 +1,71 @@
 \chapter[Theoretical Background]{Theoretical Background}
-
+This chapter provides the theoretical foundation for the development of the vibrotactile stimulation system.
+It is divided into two main parts. The first part introduces the \textbf{medical background}, including neurodegenerative diseases such as Alzheimer’s and Parkinson’s disease, their associated cognitive impairments, and current approaches to cognitive rehabilitation.
+The second part focuses on the \textbf{technical background}, describing the principles of vibrotactile stimulation, actuation technologies, and existing systems.
+This structure ensures that both the clinical motivation and the technical requirements are clearly outlined before presenting the system analysis and implementation in the following chapters.
 
 \section{Medical Background}
 
 \subsection{Neurodegenerative Diseases with Cognitive Impairments}
-Neurodegenerative diseases such as Alzheimer's disease and Parkinson's disease are among the most common causes of cognitive impairment in old age. They are characterized by the progressive loss of neuronal functions and structures, which in the long term leads to significant impairments in memory, attention, executive functions and coping with everyday life \cite{Harvey.2019}.
+Neurodegenerative diseases such as Alzheimer’s disease and Parkinson’s disease are among the leading causes of cognitive impairment in older adults. They are characterized by a progressive loss of neuronal structures and functions, which over time leads to marked deficits in memory, attention, executive abilities, and the capacity to manage everyday life \cite{Harvey.2019}.
 
 \subsubsection{Alzheimer's Disease}
-Alzheimer’s disease is the most common form of dementia, accounting for \SI{60}{\%} to \SI{70}{\%}of all cases \cite{WorldHealthOrganization.2021} According to the Alzheimer's Association (2025), it affects over 55 million people worldwide \cite{Association.2025}. It is characterized by the pathological deposition of proteins such as amyloid-$\boldsymbol{\beta}$-plaques and $\boldsymbol{\tau}$-protein-related neurofibrils in the brain, which leads to the progressive death of nerve cells \cite{Dubois.2016}.
+Alzheimer’s disease is the most common form of dementia, accounting for approximately \SI{60}{\%} to \SI{70}{\%} of all cases \cite{WorldHealthOrganization.2021}. According to the Alzheimer’s Association, more than 55 million people worldwide are currently affected \cite{Association.2025}. The disease is characterized by the pathological accumulation of proteins, including amyloid-$\beta$ plaques and $\tau$-protein-related neurofibrillary tangles, which lead to the progressive death of neurons \cite{Dubois.2016}.
 
-Directly recognizable symptoms and complaints begin with a deterioration in episodic memory, a part of long-term memory that is responsible for remembering personal experiences. As the disease progresses, there are deficits in language, orientation and judgment. The disease is long-lasting and progressive and leads to complete dependence on care in later stages \cite{WorldHealthOrganization.2021}.
+The first noticeable symptoms usually involve a decline in episodic memory, the part of long-term memory responsible for personal experiences. As the disease advances, deficits in language, spatial orientation, and judgment become more pronounced. Alzheimer’s disease is long-lasting and progressive, eventually resulting in complete dependence on care in the later stages \cite{WorldHealthOrganization.2021}.
 
 \subsubsection{Parkinson's Disease}
-Parkinson's disease is primarily known as a movement disorder, but cognitive symptoms are also common. Around \SI{30}{\%} to \SI{40}{\%} of those affected develop Parkinson's dementia over the course of the disease \cite{Janvin.2005}. Deficits in attention control, executive functions and visual-spatial perception are typical, while memory is often less severely affected at the beginning \cite{Emre.2007}.
+After discussing Alzheimer’s disease, the second major neurodegenerative disorder with cognitive impact is Parkinson’s disease. Parkinson’s disease is primarily known as a movement disorder, but cognitive symptoms are also frequent. Approximately \SI{30}{\%} to \SI{40}{\%} of patients develop Parkinson’s dementia during the course of the disease \cite{Janvin.2005}. Typical impairments include deficits in attention control, executive functions, and visuospatial perception, while memory is often less affected in the early stages \cite{Emre.2007}.
 
-The disease occurs because there is too little dopamine in the brain. The reason for this is the death of nerve cells in a certain area of the brain called the \textit{substantia nigra}. In addition, so-called Lewy bodies, which are pathological protein deposits in the nerve cells, can contribute to the development of cognitive symptoms \cite{Kalia.2015}.
+The underlying cause of the disease is a shortage of dopamine in the brain, resulting from the progressive death of neurons in the \textit{substantia nigra}. In addition, the accumulation of pathological protein deposits, known as Lewy bodies, can further contribute to the development of cognitive symptoms \cite{Kalia.2015}.
 
 \subsubsection{Cognitive Deficits and Functional Impact}
-Cognitive impairments in neurodegenerative diseases affect central functions such as memory, attention, language, visual processing and executive abilities \cite{Harvey.2019}. These deficits have a direct impact on the everyday life of those affected - for example, when taking medication independently, handling money, social contacts or spatial orientation \cite{AmericanPsychiatricAssociation.2013}. In addition to these practical limitations, there are often emotional and psychosocial burdens. Frustration, depressive moods and social isolation are not uncommon and increase the pressure on both those affected and their personal environment.
+In addition to these disease-specific aspects, it is important to consider the resulting cognitive deficits and their functional impact. Cognitive impairments in neurodegenerative diseases affect core functions such as memory, attention, language, visual processing, and executive abilities \cite{Harvey.2019}. These deficits have a direct impact on everyday activities, for example when taking medication independently, managing finances, maintaining social contacts, or navigating in space \cite{AmericanPsychiatricAssociation.2013}.
 
-This makes the early detection of cognitive symptoms all the more important. It forms the basis for targeted interventions and rehabilitation measures that aim to maintain the patient's independence and quality of life for as long as possible \cite{Petersen.2009}.
+In addition to these practical limitations, emotional and psychosocial burdens are common. Patients often experience frustration, depressive moods, and social isolation, which increase the strain on both those affected and their families.
+
+Therefore, the early detection of cognitive symptoms is of great importance. It provides the basis for targeted interventions and rehabilitation measures that aim to preserve independence and quality of life for as long as possible \cite{Petersen.2009}.
 
 \subsection{Cognitive Rehabilitation: Concepts, Methods, and Target Groups}
-Multidisziplinäre Ansätze
-\cite{Zucchella.2018}
+Multidisciplinary approaches are an important part of cognitive rehabilitation \cite{Zucchella.2018}.
+They combine cognitive training, motor therapy, music therapy, and sensory interventions.
+The goal is to maintain the independence of patients for as long as possible and to reduce the psychosocial burden on both patients and caregivers.
 
-EEG-Biomarker wie der Brain Symmetry Index (BSI) und der Laterality Coefficient (LC) erlauben eine objektive Bewertung des funktionellen Zustands des Gehirns. Die EEG-Analyse ermöglicht eine individualisierte Rehabilitationssteuerung, indem sie Veränderungen in der Hirnaktivität erfasst – insbesondere im Zusammenhang mit Motor Imagery, einer etablierten kognitiven Rehabilitationsmethode.
-Die Zielgruppe der Studie sind Schlaganfallpatienten, die oft sowohl motorische als auch kognitive Beeinträchtigungen aufweisen.
+In addition to traditional training methods, EEG-based biomarkers are increasingly used.
+Indicators such as the Brain Symmetry Index (BSI) and the Laterality Coefficient (LC) allow an objective assessment of the brain’s functional state.
+EEG analysis makes it possible to adapt rehabilitation strategies to the individual by detecting changes in brain activity, especially in connection with \textit{motor imagery}, which is an established rehabilitation method.
+These approaches are mainly used with stroke patients, who often suffer from both motor and cognitive impairments.
+
+Another important method within cognitive rehabilitation is sensory stimulation, with a growing focus on low-frequency vibration.
+Campbell et al. \cite{Campbell.2022} report in their scoping review that vibrotactile interventions can improve attention, mood, and cognitive stability.
+Depending on the application context, ranging from short-term interventions in nursing homes to long-term home-based programs, studies found positive outcomes in standardized cognitive tests as well as good patient acceptance.
+
+In summary, cognitive rehabilitation is not limited to one single method but is based on a complementary, multimodal approach.
+The integration of cognitive training, EEG-based biomarkers, and sensory methods such as vibrotactile stimulation forms a broad field of interventions that is likely to become more important in the future.
 
 
-
-% Campbell Review
-\cite{Campbell.2022}
-    
-\begin{table}[htp]
+\begin{table}[htbp]
 	\centering
-	\caption[Vergleich verschiedener Studien zur taktilen niederfrequenten Vibration in der Demenzbehandlung1]{ergleich verschiedener Studien zur taktilen niederfrequenten Vibration in der Demenzbehandlung}
-	\label{tab:TLFV_Demenz}
-	\footnotesize
-    \resizebox{0.1\linewidth}{!}{
-	%\resizebox{.5\textwidth}{!}{
-		\begin{tabular}{r c c c l}
-			\toprule
-			Studie (Autor, Jahr) & Vibrationsart & Dauer / Häufigkeit & Ergebnisse & Anwendungskontext\\
-            \midrule
-            Clements-Cortes et al., 2016 & Vibroakustisch (40 Hz, Musik, physioakustischer Stuhl) & 2x/Woche, 6 Wochen & Verbesserte SLUMS-Werte, mehr Aufmerksamkeit & Ambulante Einrichtung \\
-            Clements-Cortes et al., 2017a & Vibroakustisch (40 Hz, tägliche Heimanwendung) & Täglich, 3 Jahre & Stabile MMSE-Werte über 3 Jahre, reduzierte Frustration & Heimanwendung \\
-            Kim und Lee, 2018 & Mechanisch (WBV, Frequenzsteigerung von 20–35 Hz) & 5x/Woche, 8 Wochen & Signifikante EEG-Aktivierung, kognitive Verbesserung & Gemeindezentren \\
-            Lam et al., 2018 & Mechanisch (WBV, 30 Hz, 2 mm Amplitude) & 2x/Woche, 9 Wochen & Verbesserte Mobilität, Gleichgewicht, hohe Teilnahmequote & Tagespflege \\
-            Heesterbeek et al., 2019a & Mechanisch (WBV, 30 Hz, 1–2 mm Amplitude) & Mehrfach/Woche, Dauer 12 Min & Gute Akzeptanz, einige berichtete Übelkeit & Pflegeheim \\
-			\bottomrule
-		\end{tabular}
-		}
+	\caption{Comparison of studies on tactile low-frequency vibration in dementia management (based on Campbell et al., 2022)}
+	\label{tab:vibration-studies}
+	\begin{tabular}{p{0.5cm} p{3.2cm} p{2.5cm} p{4cm} p{2.5cm}}
+		\hline
+		\textbf{Study}             & \textbf{Type of Vibration}                         & \textbf{Duration / Frequency} & \textbf{Outcomes}                                    & \textbf{Application Context} \\
+		\hline
+		\cite{ClementsCortes.2016} & Vibroacoustic (40 Hz, music, physioacoustic chair) & 2x week, 6 weeks              & Improved SLUMS scores, increased attention           & Outpatient facility          \\
+
+		\cite{ClementsCortes.2017} & Vibroacoustic (40 Hz, daily home application)      & Daily, 3 years                & Stable MMSE scores over 3 years, reduced frustration & Home use                     \\
+
+		\cite{Kim.2018}            & Mechanical (WBV, frequency increase from 20–35 Hz) & 5x/week, 8 weeks              & Significant EEG activation, cognitive improvement    & Community centers            \\
+
+		\cite{Lam.2018}            & Mechanical (WBV, 30 Hz, 2 mm amplitude)            & 2x/week, 9 weeks              & Improved mobility, balance, high participation rate  & Day-care center              \\
+
+		\cite{Heesterbeek.2019}    & Mechanical (WBV, 30 Hz, 1–2 mm amplitude)          & Multiple times/week, 12 min   & Good acceptance, some reported side effects (nausea) & Nursing home                 \\
+
+		\hline
+	\end{tabular}
 \end{table}
+
 
 \section{Technical Background}
 
