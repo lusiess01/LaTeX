@@ -1,0 +1,1 @@
+{"rule":"THE_LATER_LATTER","sentence":"^\\QAlzheimer's disease is long-lasting and progressive, eventually resulting in complete dependence on care in the later stages \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-)[0-9]+\\Q.\\E$"}

@@ -43,50 +43,62 @@ Depending on the application context, ranging from short-term interventions in n
 In summary, cognitive rehabilitation is not limited to one single method but is based on a complementary, multimodal approach.
 The integration of cognitive training, EEG-based biomarkers, and sensory methods such as vibrotactile stimulation forms a broad field of interventions that is likely to become more important in the future.
 
-
-\begin{table}[htbp]
-	\centering
-	\caption{Comparison of studies on tactile low-frequency vibration in dementia management (based on Campbell et al., 2022)}
-	\label{tab:vibration-studies}
-	\begin{tabular}{p{0.5cm} p{3.2cm} p{2.5cm} p{4cm} p{2.5cm}}
-		\hline
-		\textbf{Study}             & \textbf{Type of Vibration}                         & \textbf{Duration / Frequency} & \textbf{Outcomes}                                    & \textbf{Application Context} \\
-		\hline
-		\cite{ClementsCortes.2016} & Vibroacoustic (40 Hz, music, physioacoustic chair) & 2x week, 6 weeks              & Improved SLUMS scores, increased attention           & Outpatient facility          \\
-
-		\cite{ClementsCortes.2017} & Vibroacoustic (40 Hz, daily home application)      & Daily, 3 years                & Stable MMSE scores over 3 years, reduced frustration & Home use                     \\
-
-		\cite{Kim.2018}            & Mechanical (WBV, frequency increase from 20–35 Hz) & 5x/week, 8 weeks              & Significant EEG activation, cognitive improvement    & Community centers            \\
-
-		\cite{Lam.2018}            & Mechanical (WBV, 30 Hz, 2 mm amplitude)            & 2x/week, 9 weeks              & Improved mobility, balance, high participation rate  & Day-care center              \\
-
-		\cite{Heesterbeek.2019}    & Mechanical (WBV, 30 Hz, 1–2 mm amplitude)          & Multiple times/week, 12 min   & Good acceptance, some reported side effects (nausea) & Nursing home                 \\
-
-		\hline
-	\end{tabular}
-\end{table}
-
-
 \section{Technical Background}
 
 \subsection{Vibrotactile Stimulation: Principles and Therapeutic Applications}
-%Vibrotactile Stimulation
-\cite{Campbell.2022}
+Vibrotactile stimulation refers to the application of mechanical vibrations to the skin in order to modulate sensory, motor, or cognitive processes. The fundamental principle is the activation of mechanoreceptors such as Pacinian and Meissner corpuscles, which are particularly sensitive to low- and mid-frequency vibrations \cite{Campbell.2022}. Through afferent pathways, these peripheral inputs can influence central neural networks and activate both cortical and subcortical structures.
 
-\cite{ClementsCortes.2016, Heesterbeek.2019,Lam.2018, Clair.1993, Kim.2018, ClementsCortes.2017, Mercado.2006, ClementsCortes.2017b, ClementsCortes.2022}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.62\textwidth]{img/PainTransmitted.jpg}
+    \caption[PainTransmitted https://aneskey.com/spinal-cord-stimulation-2 ]{PainTransmitted}
+    \label{fig:PainTransmitted}
+\end{figure}
 
+The therapeutic use of vibrotactile stimulation has been investigated for several decades. Early studies demonstrated beneficial effects in the rehabilitation of neurological conditions, particularly in patients with motor impairments resulting from stroke or Parkinson’s disease \cite{Clair.1993, Mercado.2006, Lam.2018, Heesterbeek.2019}. Vibrotactile input has been shown to improve muscle control, reduce tremor, and promote plasticity within the motor cortex.
+
+In addition, vibrotactile stimulation has been applied in the context of music therapy. Clements-Cortés and colleagues have shown that music-vibrotactile interventions (MVT) can enhance quality of life and mood in patients with neurodegenerative diseases \cite{ClementsCortes.2016, ClementsCortes.2017, ClementsCortes.2017b, ClementsCortes.2022}. The integration of auditory and somatosensory input strengthens the multisensory nature of therapy and facilitates access to emotional and cognitive processes.
+
+Positive effects have also been reported in dementia and Alzheimer’s disease. Vibrotactile stimulation has been associated with reductions in agitation and restlessness, as well as improvements in social engagement and emotional well-being \cite{Kim.2018, ClementsCortes.2022}. According to Campbell et al. \cite{Campbell.2022}, vibrotactile stimulation may not only provide symptomatic relief but also trigger long-term neuroplastic mechanisms.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.62\textwidth]{img/ApplicationsTherapy.png}
+    \caption[ApplicationsTherapy]{ApplicationsTherapy}
+    \label{fig:ApplicationsTherapy}
+\end{figure}
+
+Overall, vibrotactile stimulation emerges as a promising therapeutic strategy across neurological rehabilitation and music therapy. Its effectiveness relies on the precise activation of peripheral mechanoreceptors and the induction of central nervous system responses, which vary according to frequency, intensity, and duration. This versatility opens opportunities for a wide range of clinical applications, spanning from tremor reduction to improvements in emotional well-being and quality of life in patients with cognitive disorders.
 
 \subsection{Actuation Technologies for Haptic Feedbacks}
-40 Hz \& Gamma Frequenzen, \cite{ReikoTutida.2014} \cite{Mably.2018} \cite{Iaccarino.2016} \cite{Martorell.2019} zeigen neurobiologische Wirkung
+The development of actuation technologies is central to the implementation of haptic feedback systems. Such systems rely on transducers capable of delivering precise vibrotactile stimuli at defined frequencies and amplitudes, thereby enabling targeted engagement of somatosensory receptors. Commonly used actuators include eccentric rotating mass (ERM) motors, linear resonant actuators (LRA), and piezoelectric transducers, each differing in frequency range, energy efficiency, and capacity for fine-grained control. Piezoelectric actuators, for example, allow for high-frequency and localized stimulation, making them particularly suitable for experimental and therapeutic applications where temporal precision is critical.
+
+Of particular relevance in recent years has been the exploration of vibrotactile stimulation at \SI{40}{Hz} and within the $\gamma$-frequency-band. These frequencies have attracted significant interest due to their documented neurobiological effects. Iaccarino et al. \cite{Iaccarino.2016} demonstrated that \SI{40}{Hz} visual stimulation can entrain $\gamma$ oscillations in the brain and reduce amyloid-$\beta$ load in Alzheimer’s disease mouse models. Extending this line of evidence, Martorell et al. \cite{Martorell.2019} reported that combined auditory and somatosensory \SI{40}{Hz} stimulation promoted widespread $\gamma$-entrainment, improved memory performance, and reduced neuropathological markers in Alzheimer’s models. Such findings suggest that haptic actuators capable of delivering stable $\gamma$-band vibrations may be of therapeutic relevance in neurodegenerative conditions.
+
+The broader neurobiological importance of $\gamma$-oscillations has been highlighted in both animal and human studies. Mably and Colgin \cite{Mably.2018} reviewed the functional role of $\gamma$-rhythms in memory encoding and retrieval, emphasizing their contribution to cognitive integration processes. In a similar vein, Reiko Tutida et al. \cite{ReikoTutida.2014} provided evidence that $\gamma$-range stimulation can modulate neuronal synchronization and cortical excitability. These insights reinforce the rationale for designing haptic technologies that can reliably deliver vibrotactile stimulation in the $\gamma$-frequency range.
+
+Taken together, advances in actuation technologies not only enable precise delivery of vibrotactile feedback but also open new therapeutic possibilities. By harnessing the neurobiological effects of $\gamma$-band stimulation, haptic systems may serve as tools for cognitive enhancement and as non-invasive interventions in neurodegenerative disease management.
+
+\subsection{Overview of Existing Vibrotactile Stimulation Systems}
+In recent years, a variety of vibrotactile stimulation systems have been developed for both research and clinical purposes. These systems differ in their actuation technologies, form factors, and therapeutic objectives, yet they share the common goal of engaging the somatosensory system through controlled vibratory input.
+
+One prominent class of devices are \textit{vibrotactile chairs} and \textit{sound beds}, which integrate low-frequency transducers into seating or lying platforms. Such systems are widely used in music therapy and dementia care, enabling whole-body vibrotactile stimulation combined with auditory input to promote relaxation, mood improvement, and social engagement \cite{ClementsCortes.2016, ClementsCortes.2017, ClementsCortes.2022}. 
+
+In contrast, \textit{wearable vibrotactile devices} have been designed to provide localized stimulation to specific body regions. These include wristbands, armbands, and vests equipped with small actuators such as linear resonant actuators or piezoelectric elements \cite{Lam.2018, Heesterbeek.2019}. Wearable solutions are particularly attractive for mobile health applications, as they enable individualized therapy and integration with portable monitoring technologies such as EEG and biosensors.
+
+A third category comprises \textit{research platforms} that employ arrays of actuators to deliver spatially and temporally precise vibrotactile stimuli. These are frequently used in experimental neuroscience and brain–computer interface (BCI) studies to investigate somatosensory processing, attention, or neuroplasticity \cite{Guger.2012, SebastianRomagosa.2020}. Some systems further combine vibrotactile stimulation with auditory or visual input to exploit multisensory integration mechanisms.
+
+Overall, existing vibrotactile stimulation systems range from stationary therapeutic platforms to mobile wearables and experimental setups. Their diversity reflects both the wide spectrum of application contexts—from relaxation and dementia care to motor rehabilitation and BCI research—and the rapid technological progress that enables increasingly precise and user-centered designs.
 
 
 \subsection{Voice Coil Actuators for Vibrotactile Stimulation}
-EEG \& Wearables \cite{Guger.2012} \cite{Guger.2017} \cite{SebastianRomagosa.2020} \cite{Xu.2022} über EEG-Tech, BCI, und mobile Erfassung
+Voice coil actuators (VCAs) represent a class of electromagnetic transducers that generate linear motion through the interaction of a coil and a permanent magnet. Unlike eccentric rotating mass (ERM) motors or linear resonant actuators (LRA), VCAs offer high precision, a wide frequency bandwidth, and rapid response times, making them particularly suitable for delivering controlled vibrotactile stimulation. Their ability to generate low-distortion vibrations across a broad frequency spectrum allows for the implementation of experimental protocols that demand both temporal accuracy and physiological relevance.
 
+Recent developments in brain–computer interface (BCI) and wearable electroencephalography (EEG) technologies provide a framework for integrating VCAs into closed-loop neurostimulation systems. Guger et al. demonstrated that portable EEG systems can be effectively applied in real-world contexts, extending the scope of BCI applications beyond laboratory settings \cite{Guger.2012, Guger.2017}. Building on this, Sebastian-Romagosa et al. \cite{SebastianRomagosa.2020} highlighted the potential of mobile EEG in conjunction with tactile stimulation for neurorehabilitation, where wearable systems allow continuous monitoring of brain responses during multimodal interventions.
 
-\subsection{Overview of Existing Vibrotactile Stimulation Systems}
-%VCAs (selbst ergänzt)	Hier kannst du technische Quellen ergänzen, z. B. Datenblätter oder Paper zu haptischen Aktuatoren
+The integration of VCAs with EEG-based monitoring further supports the development of adaptive stimulation paradigms. Xu et al. \cite{Xu.2022} reviewed recent advances in wearable EEG systems, emphasizing their growing role in mobile health applications and in the design of neuroadaptive devices. In this context, VCAs provide a versatile platform for vibrotactile actuation, capable of delivering stimulation at therapeutic frequencies (such as the $\gamma$-range) while EEG simultaneously captures neural entrainment and cortical responses.
 
+Consequently, voice coil actuators combined with wearable EEG and BCI technologies represent a versatile platform for adaptive vibrotactile stimulation. Their capacity to integrate precise stimulation delivery with simultaneous monitoring of neural responses underscores their potential as a cornerstone of next-generation neurotechnology.
 
-
-
+%Abschluss Kapitel 2.2
+In conclusion, the presented concepts and technologies form the technical basis for the subsequent system development. By examining the principles of vibrotactile stimulation, the range of actuation technologies, existing applications, and the specific advantages of voice coil actuators, this chapter establishes the foundation for the detailed analysis of the current VCA-based setup introduced in Chapter \ref{kap:Kapitel3}.
