@@ -1,49 +1,156 @@
-\chapter{Analysis of the Current VCA-Based System}\label{kap:Kapitel3}{}
+\chapter[Analysis of the Voice Coil Actuator System]{Analysis of the Voice Coil Actuator System}\label{kap:Kapitel3}
+Based on the theoretical background presented in Chapter~\ref{kap:Kapitel2}, this chapter focuses on the practical aspects of the voice coil actuator (VCA). First, the general structure and mathematical modeling of VCAs are discussed, followed by a detailed description of the specific system used in this study and its experimental characterization.
 
+\section{General Structure and Mathematical Modeling of Voice Coil Actuators}
+A voice coil actuator (VCA) is an electromechanical device that directly converts electrical energy into linear motion \cite{Shewale.2018, Baronti.2009}. Its structure consists of several essential components that jointly determine its performance.
+
+At the core of the actuator is the \textbf{permanent magnet assembly}, typically made from high-energy materials such as NdFeB. Together with a ferromagnetic return path, usually soft iron or steel, the permanent magnet forms a magnetic circuit that channels flux into a narrow air gap. This concentrated flux region ensures efficient electromechanical conversion \cite{Brown.2012}.
+
+Placed within the air gap is the \textbf{moving coil}, wound around a lightweight bobbin. In the moving-coil design, current flowing through the winding generates a Lorentz force proportional to the magnetic flux density \cite{Wu.2015,Baronti.2009}. Alternative moving-magnet configurations also exist, but they are less common due to increased thermal challenges \cite{Shewale.2018}. The bobbin material plays an important role: conductive materials such as aluminum can induce eddy-current damping, whereas non-conductive materials like plastics minimize energy loss and improve dynamic response \cite{Abdullah.2020}.
+
+The coil’s motion is constrained by a \textbf{suspension system}, which provides both restoring stiffness and passive damping. This suspension is usually represented as a spring–damper system with parameters $k$ and $c$. Together with the mass of the moving coil and bobbin $m$, the suspension defines the resonance characteristics of the actuator \cite{Wu.2015,Baronti.2009}. The resulting lumped-parameter mechanical model is shown in Fig.~\ref{fig:SpringMassDamper}.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.62\textwidth]{img/SpringMassDamper.png}
+	\caption[Mechanical equivalent model of the VCA represented as a mass-spring-damper system.]{Mechanical equivalent model of the VCA represented as a mass-spring-damper system.}
+	\label{fig:SpringMassDamper}
+\end{figure}
+
+All components are housed in a rigid casing, which provides structural stability and ensures proper thermal dissipation. Joule heating in the coil can increase winding resistance; therefore, efficient thermal management is essential.
+
+Since each physical component of the actuator has a direct counterpart in the mathematical description, the following section derives the governing equations. The magnet assembly defines the magnetic flux density in the air gap, the coil generates force proportional to the current, and the suspension contributes stiffness and damping. Together, these elements form a coupled electromechanical system described below.
+
+\subsection{Mathematical Modeling of a Voice Coil Actuator}
+
+\subsubsection{Electrical Subsystem}
+Applying Kirchhoff’s voltage law to the coil yields:
+
+\begin{equation}
+	u(t) = R i(t) + L \frac{di(t)}{dt} + e(t),
+	\label{eq:voltage_balance}
+\end{equation}
+
+where $u(t)$ is the applied voltage, $R$ the coil resistance, $L$ the inductance, and $e(t)$ the back electromotive force (BEMF) \cite{Wu.2015,Baronti.2009}.
+
+The BEMF is proportional to the velocity of the moving coil:
+
+\begin{equation}
+	e(t) = k_b \dot{x}(t),
+	\label{eq:back_emf}
+\end{equation}
+
+with $k_b$ denoting the back-EMF constant \cite{Brown.2012}.
+
+\subsection{Mechanical Subsystem}
+The electromagnetic force generated is proportional to the current:
+
+\begin{equation}
+	F_{em}(t) = k_f i(t),
+	\label{eq:force_generation}
+\end{equation}
+
+where $k_f$ is the force constant \cite{Shewale.2018,Brown.2012}.
+
+According to Newton’s second law, the dynamics of the moving element are given by:
+
+\begin{equation}
+	m \ddot{x}(t) + c \dot{x}(t) + k x(t) = F_{em}(t),
+	\label{eq:mechanical_balance}
+\end{equation}
+
+with $m$ the moving mass, $c$ the damping coefficient, and $k$ the suspension stiffness \cite{Wu.2015,Baronti.2009}.
+
+The electrical dynamics of the coil can be represented by the equivalent circuit shown in Fig.~\ref{fig:ElectricalEquivalentCircuit}, which includes $R$, $L$, and the BEMF source.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.62\textwidth]{img/ElectricalEquivalentCircuit.png}
+	\caption{Electrical equivalent circuit of the VCA coil including resistance $R$, inductance $L$, and back-EMF source.}
+	\label{fig:ElectricalEquivalentCircuit}
+\end{figure}
+
+\subsection{Coupled Electromechanical Model}
+By substituting Eq.~\eqref{eq:force_generation} into Eq.~\eqref{eq:mechanical_balance}, the coupled equation of motion becomes:
+
+\begin{equation}
+	m \ddot{x}(t) + c \dot{x}(t) + k x(t) = k_f i(t).
+	\label{eq:mechanical_final}
+\end{equation}
+
+Together, Eqs.~\eqref{eq:voltage_balance}--\eqref{eq:mechanical_final} form the electromechanical model of the actuator \cite{Wu.2015,Baronti.2009}.
+
+Taking Laplace transforms (zero initial conditions) gives:
+
+\begin{equation}
+	U(s) = R I(s) + L s I(s) + k_b s X(s),
+	\label{eq:laplace_electric}
+\end{equation}
+\begin{equation}
+	m s^2 X(s) + c s X(s) + k X(s) = k_f I(s).
+	\label{eq:laplace_mechanic}
+\end{equation}
+
+Eliminating $I(s)$ yields the transfer function from input voltage to displacement:
+
+\begin{equation}
+	\frac{X(s)}{U(s)} = \frac{k_f}{m L s^3 + (m R + c L) s^2 + (c R + k L + k_b k_f) s + k R}.
+	\label{eq:transfer_function}
+\end{equation}
+
+This shows that the actuator behaves as a third-order electromechanical system, with the coupling term $k_b k_f$ representing the back-EMF effect \cite{Wu.2015}.
+
+The derived model provides the theoretical basis for analyzing actuator dynamics. In order to identify parameters and validate the model, the next section presents the experimental setup and measurement procedures used in this work.
+
+\newpage
+
+
+\section{Analysis of the Current VCA-Based System}
 \section{Overview of the Current VCA System}
-This section provides an overview of the existing Voice Coil Actuator (VCA)-based setup. The System consists of seven main parts. 
+This section provides an overview of the existing Voice Coil Actuator (VCA)-based setup. The System consists of seven main parts.
 
 \begin{itemize}
-    \item Spring frame (Minimizing the loss of vertical motion transmitted to the node)
-    \item Magnet Housing (fixed Magnetic field is always formed)
-    \item Bobbin Coil (Magnetic field is formed only when current flows)
-    \item Node (Transmitting vertical motion directly to the human body as sound and vibration)
-    \item Node screw (fixes the node to the bobbin coil)
-    \item Rubber frame (Suppresses vibration from the body from being transmitted to the outside world)
-    \item Connection PCB (Take the analog signal from the AMP and apply it to the bobbin coil)
+	\item Spring frame (Minimizing the loss of vertical motion transmitted to the node)
+	\item Magnet Housing (fixed Magnetic field is always formed)
+	\item Bobbin Coil (Magnetic field is formed only when current flows)
+	\item Node (Transmitting vertical motion directly to the human body as sound and vibration)
+	\item Node screw (fixes the node to the bobbin coil)
+	\item Rubber frame (Suppresses vibration from the body from being transmitted to the outside world)
+	\item Connection PCB (Take the analog signal from the AMP and apply it to the bobbin coil)
 \end{itemize}
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.62\textwidth]{img/coil.png}
-    \caption[coil model]{coil model}
-    \label{fig:CoilModel}
+	\centering
+	\includegraphics[width=0.62\textwidth]{img/coil.png}
+	\caption[coil model]{coil model}
+	\label{fig:CoilModel}
 \end{figure}
 
 \begin{figure}[ht]
-    \centering
-    \begin{subfigure}[b]{0.45\textwidth}
-    \includegraphics[width=\textwidth]{img/B_Vektor_Iso.jpg}
-    \caption{}
-    \label{subfig:B_Vektor_Iso}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.45\textwidth}
-    \includegraphics[width=\textwidth]{img/B_Vektor_Top.jpg}
-    \caption{}
-    \label{subfig:B_Vektor_Top}
-    \end{subfigure}
-    \vspace{0.1cm}
-    \caption{Ansys simulation of the B-field in the Magnet Housing (a) VCA in iso view (b) VCA in top view}
-    \label{fig:B_Vektor}
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{img/B_Vektor_Iso.jpg}
+		\caption{}
+		\label{subfig:B_Vektor_Iso}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{img/B_Vektor_Top.jpg}
+		\caption{}
+		\label{subfig:B_Vektor_Top}
+	\end{subfigure}
+	\vspace{0.1cm}
+	\caption{Ansys simulation of the B-field in the Magnet Housing (a) VCA in iso view (b) VCA in top view}
+	\label{fig:B_Vektor}
 \end{figure}
 
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.62\textwidth]{plots/ForecePlot.eps}
-    \caption[Force Plot]{Force Plot}
-    \label{fig:ForcePlot}
+	\centering
+	\includegraphics[width=0.62\textwidth]{plots/ForecePlot.eps}
+	\caption[Force Plot]{Force Plot}
+	\label{fig:ForcePlot}
 \end{figure}
 
 
@@ -55,114 +162,114 @@ This section provides an overview of the existing Voice Coil Actuator (VCA)-base
 \subsection{Measurement Setup}
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.62\textwidth]{img/DrawIO/BlockdiagramMeasurementSetup.pdf}
-    \caption[BlockdiagramMeasurementSetup]{BlockdiagramMeasurementSetup}
-    \label{fig:BlockdiagramMeasurementSetup}
+	\centering
+	\includegraphics[width=0.62\textwidth]{img/DrawIO/BlockdiagramMeasurementSetup.pdf}
+	\caption[BlockdiagramMeasurementSetup]{BlockdiagramMeasurementSetup}
+	\label{fig:BlockdiagramMeasurementSetup}
 \end{figure}
 
 \subsection{Results \& Interpretation}
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.62\textwidth]{plots/SpringMeasurement.eps}
-    \caption[SpringTest]{SpringTest}
-    \label{fig:SpringTest}
+	\centering
+	\includegraphics[width=0.62\textwidth]{plots/SpringMeasurement.eps}
+	\caption[SpringTest]{SpringTest}
+	\label{fig:SpringTest}
 \end{figure}
 
 \FloatBarrier
 \begin{figure}[ht]
-    \centering
-    \begin{subfigure}[b]{0.4\textwidth}
-    \includegraphics[width=\textwidth]{plots/TimeWith36gMass.eps}
-    \caption{}
-    \label{subfig:TimeHerzionClassicMode}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.4\textwidth}
-    \includegraphics[width=\textwidth]{plots/TimeWithoutMass.eps}
-    \caption{}
-    \label{subfig:TimeHerzionEnergyMode}
-    \end{subfigure}
-    \vspace{0.1cm}
-    \caption[Time VCA]{(a) With 36g Mass (b) Without Mass}
-    \label{fig:PhaseAcontroll}
-\end{figure}
-\FloatBarrier
-
-\FloatBarrier
-\begin{figure}[ht]
-    \centering
-    \begin{subfigure}[b]{0.4\textwidth}
-    \includegraphics[width=\textwidth]{plots/FFTWith36gMass.eps}
-    \caption{}
-    \label{subfig:TimeHerzionClassicMode}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.4\textwidth}
-    \includegraphics[width=\textwidth]{plots/FFTWithoutMass.eps}
-    \caption{}
-    \label{subfig:TimeHerzionEnergyMode}
-    \end{subfigure}
-    \vspace{0.1cm}
-    \caption[FFT VCA]{(a) With 36g Mass (b) Without Mass}
-    \label{fig:PhaseAcontroll}
+	\centering
+	\begin{subfigure}[b]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{plots/TimeWith36gMass.eps}
+		\caption{}
+		\label{subfig:TimeHerzionClassicMode}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{plots/TimeWithoutMass.eps}
+		\caption{}
+		\label{subfig:TimeHerzionEnergyMode}
+	\end{subfigure}
+	\vspace{0.1cm}
+	\caption[Time VCA]{(a) With 36g Mass (b) Without Mass}
+	\label{fig:PhaseAcontroll}
 \end{figure}
 \FloatBarrier
 
 \FloatBarrier
 \begin{figure}[ht]
-    \centering
-    \begin{subfigure}[b]{0.4\textwidth}
-    \includegraphics[width=\textwidth]{plots/TimeHerzionClassicMode.eps}
-    \caption{}
-    \label{subfig:TimeHerzionClassicMode}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.4\textwidth}
-    \includegraphics[width=\textwidth]{plots/TimeHerzionEnergyMode.eps}
-    \caption{}
-    \label{subfig:TimeHerzionEnergyMode}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.4\textwidth}
-    \includegraphics[width=\textwidth]{plots/TimeHerzionHealingMode.eps}
-    \caption{}
-    \label{subfig:TimeHerzionHealingMode}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.4\textwidth}
-    \includegraphics[width=\textwidth]{plots/TimeHerzionRecoveryMode.eps}
-    \caption{}
-    \label{subfig:TimeHerzionRecoveryyMode}
-    \end{subfigure}
-    \vspace{0.1cm}
-    \caption[Time Herzion]{(a) Classic Mode (b) Energy Mode (c) Healing Mode (d) Recovery Mode}
-    \label{fig:PhaseAcontroll}
+	\centering
+	\begin{subfigure}[b]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{plots/FFTWith36gMass.eps}
+		\caption{}
+		\label{subfig:TimeHerzionClassicMode}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{plots/FFTWithoutMass.eps}
+		\caption{}
+		\label{subfig:TimeHerzionEnergyMode}
+	\end{subfigure}
+	\vspace{0.1cm}
+	\caption[FFT VCA]{(a) With 36g Mass (b) Without Mass}
+	\label{fig:PhaseAcontroll}
 \end{figure}
 \FloatBarrier
 
 \FloatBarrier
 \begin{figure}[ht]
-    \centering
-    \begin{subfigure}[b]{0.4\textwidth}
-    \includegraphics[width=\textwidth]{plots/FFTHerzionClassicMode.eps}
-    \caption{}
-    \label{subfig:FFTHerzionClassicMode}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.4\textwidth}
-    \includegraphics[width=\textwidth]{plots/FFTHerzionEnergyMode.eps}
-    \caption{}
-    \label{subfig:FFTHerzionEnergyMode}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.4\textwidth}
-    \includegraphics[width=\textwidth]{plots/FFTHerzionHealingMode.eps}
-    \caption{}
-    \label{subfig:FFTHerzionHealingMode}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.4\textwidth}
-    \includegraphics[width=\textwidth]{plots/FFTHerzionRecoveryMode.eps}
-    \caption{}
-    \label{subfig:FFTHerzionRecoveryMode}
-    \end{subfigure}
-    \vspace{0.1cm}
-    \caption[FFT Herzion]{(a) Classic Mode (b) Energy Mode (c) Healing Mode (d) Recovery Mode}
-    \label{fig:PhaseAcontroll}
+	\centering
+	\begin{subfigure}[b]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{plots/TimeHerzionClassicMode.eps}
+		\caption{}
+		\label{subfig:TimeHerzionClassicMode}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{plots/TimeHerzionEnergyMode.eps}
+		\caption{}
+		\label{subfig:TimeHerzionEnergyMode}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{plots/TimeHerzionHealingMode.eps}
+		\caption{}
+		\label{subfig:TimeHerzionHealingMode}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{plots/TimeHerzionRecoveryMode.eps}
+		\caption{}
+		\label{subfig:TimeHerzionRecoveryyMode}
+	\end{subfigure}
+	\vspace{0.1cm}
+	\caption[Time Herzion]{(a) Classic Mode (b) Energy Mode (c) Healing Mode (d) Recovery Mode}
+	\label{fig:PhaseAcontroll}
+\end{figure}
+\FloatBarrier
+
+\FloatBarrier
+\begin{figure}[ht]
+	\centering
+	\begin{subfigure}[b]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{plots/FFTHerzionClassicMode.eps}
+		\caption{}
+		\label{subfig:FFTHerzionClassicMode}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{plots/FFTHerzionEnergyMode.eps}
+		\caption{}
+		\label{subfig:FFTHerzionEnergyMode}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{plots/FFTHerzionHealingMode.eps}
+		\caption{}
+		\label{subfig:FFTHerzionHealingMode}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{plots/FFTHerzionRecoveryMode.eps}
+		\caption{}
+		\label{subfig:FFTHerzionRecoveryMode}
+	\end{subfigure}
+	\vspace{0.1cm}
+	\caption[FFT Herzion]{(a) Classic Mode (b) Energy Mode (c) Healing Mode (d) Recovery Mode}
+	\label{fig:PhaseAcontroll}
 \end{figure}
 \FloatBarrier
 
